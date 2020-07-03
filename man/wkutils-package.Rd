@@ -9,6 +9,14 @@
 Provides extra utilities for well-known formats in the
   'wk' package that are outside the scope of that package.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/paleolimbot/wkutils}
+  \item Report bugs at \url{https://github.com/paleolimbot/wkutils/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Dewey Dunnington \email{dewey@fishandwhistle.net} (\href{https://orcid.org/0000-0002-9415-4582}{ORCID})
 

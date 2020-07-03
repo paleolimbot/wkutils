@@ -34,7 +34,7 @@ custom C++ handlers and debugging read problems.
 wkt_debug("MULTIPOLYGON (((0 0, 10 0, 0 10, 0 0)))")
 wkt_streamer_debug("MULTIPOLYGON (((0 0, 10 0, 0 10, 0 0)))")
 wkb_debug(
-  wkt_translate_wkb(
+  wk::wkt_translate_wkb(
     "MULTIPOLYGON (((0 0, 10 0, 0 10, 0 0)))"
   )
 )
