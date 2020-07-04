@@ -2,9 +2,29 @@
 % Please edit documentation in R/grob.R
 \name{wkt_grob}
 \alias{wkt_grob}
+\alias{wkb_grob}
+\alias{wksxp_grob}
 \title{Generate grid geometries from well-known geometries}
 \usage{
 wkt_grob(
+  wkt,
+  ...,
+  rule = "evenodd",
+  default.units = "native",
+  name = NULL,
+  vp = NULL
+)
+
+wkb_grob(
+  wkt,
+  ...,
+  rule = "evenodd",
+  default.units = "native",
+  name = NULL,
+  vp = NULL
+)
+
+wksxp_grob(
   wkt,
   ...,
   rule = "evenodd",
@@ -17,7 +37,7 @@ wkt_grob(
 \item{wkt}{A character vector containing well-known text.}
 
 \item{...}{Graphical parameters passed to \code{\link[grid:gpar]{grid::gpar()}}. These are recycled along
-the input.}
+the input. Dynamic dots (e.g., \verb{!!!}) are supported.}
 
 \item{rule}{Use "winding" if polygon rings are correctly encoded with a winding
 direction.}
@@ -30,7 +50,7 @@ direction.}
 in the input.}
 }
 \value{
-
+A \link[grid:grid.grob]{graphical object}
 }
 \description{
 Using \code{\link[=wkt_meta]{wkt_meta()}} and \code{\link[=wkt_coords]{wkt_coords()}}, these functions create graphical objects

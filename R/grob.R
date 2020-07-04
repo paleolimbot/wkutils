@@ -9,7 +9,7 @@
 #'
 #' @inheritParams wk::wkb_translate_wkt
 #' @param ... Graphical parameters passed to [grid::gpar()]. These are recycled along
-#'   the input.
+#'   the input. Dynamic dots (e.g., `!!!`) are supported.
 #' @param rule Use "winding" if polygon rings are correctly encoded with a winding
 #'   direction.
 #' @param default.units Coordinate units, which may be defined by the viewport (see
@@ -18,7 +18,7 @@
 #'   [grid::pathGrob()], or [grid::gTree()] depending on the types of geometries
 #'   in the input.
 #'
-#' @return
+#' @return A [graphical object][grid::grob]
 #' @export
 #'
 #' @examples
@@ -26,12 +26,59 @@
 #' grid::grid.draw(wkt_grob("POINT (0.5 0.5)", pch = 16, default.units = "npc"))
 #'
 wkt_grob <- function(wkt, ..., rule = "evenodd", default.units = "native", name = NULL, vp = NULL) {
-  meta <- wkt_meta(wkt)
-  gpar_values_all <- vctrs::vec_recycle_common(..., .size = length(wkt))
+  grob_wk_possibly_nested(
+    wkt,
+    ...,
+    unnest_fun = wkt_unnest,
+    meta_fun = wkt_meta,
+    coords_fun = wkt_coords,
+    rule = rule,
+    default.units = default.units,
+    name = name,
+    vp = vp
+  )
+}
+
+#' @rdname wkt_grob
+#' @export
+wkb_grob <- function(wkt, ..., rule = "evenodd", default.units = "native", name = NULL, vp = NULL) {
+  grob_wk_possibly_nested(
+    wkt,
+    ...,
+    unnest_fun = wkb_unnest,
+    meta_fun = wkb_meta,
+    coords_fun = wkb_coords,
+    rule = rule,
+    default.units = default.units,
+    name = name,
+    vp = vp
+  )
+}
+
+#' @rdname wkt_grob
+#' @export
+wksxp_grob <- function(wkt, ..., rule = "evenodd", default.units = "native", name = NULL, vp = NULL) {
+  grob_wk_possibly_nested(
+    wkt,
+    ...,
+    unnest_fun = wksxp_unnest,
+    meta_fun = wksxp_meta,
+    coords_fun = wksxp_coords,
+    rule = rule,
+    default.units = default.units,
+    name = name,
+    vp = vp
+  )
+}
+
+grob_wk_possibly_nested <- function(x, ..., unnest_fun, meta_fun, coords_fun,
+                                    rule, default.units, name, vp) {
+  meta <- meta_fun(x)
+  gpar_values_all <- vctrs::vec_recycle_common(..., .size = length(x))
 
   # if there are any collections, unnest everything
-  if (any(meta$size > 0 && meta$type_id == 7)) {
-    unnested <- wkt_unnest(wkt, keep_empty = FALSE, keep_multi = TRUE, max_depth = 10)
+  if (any((meta$size > 0) & (meta$type_id == 7))) {
+    unnested <- unnest_fun(x, keep_empty = FALSE, keep_multi = TRUE, max_depth = 10)
 
     lengths <- attr(unnested, "lengths")
     run_length_enc <- structure(
@@ -51,7 +98,7 @@ wkt_grob <- function(wkt, ..., rule = "evenodd", default.units = "native", name 
     )
   }
 
-  coords <- wkt_coords(wkt)
+  coords <- coords_fun(x)
   grob_wk_base(
     meta, coords, gpar_values_all,
     rule = rule,
@@ -59,11 +106,6 @@ wkt_grob <- function(wkt, ..., rule = "evenodd", default.units = "native", name 
     name = name,
     vp = vp
   )
-}
-
-grob_wk_possibly_nested <- function(x, ..., unnest_fun, meta_fun, coords_fun,
-                                    rule, default.units, name, vp) {
-
 }
 
 grob_wk_base <- function(meta, coords, gpar_values_all, rule, default.units, name = NULL, vp = NULL) {
