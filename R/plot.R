@@ -19,7 +19,7 @@
 #' @export
 #'
 #' @examples
-#' plot(wkt("POINT (30 10)"))
+#' plot(wk::wkt("POINT (30 10)"))
 #'
 plot.wk_wkt <- function(x, ...,
                         asp = 1, bbox = NULL, xlab = "", ylab = "",

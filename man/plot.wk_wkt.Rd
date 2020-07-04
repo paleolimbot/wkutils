@@ -64,6 +64,6 @@ These plot functions are intended to help debug geometry vectors,
 and are not intended to be high-performance.
 }
 \examples{
-plot(wkt("POINT (30 10)"))
+plot(wk::wkt("POINT (30 10)"))
 
 }
