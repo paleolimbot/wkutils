@@ -228,6 +228,150 @@ BEGIN_RCPP
     return R_NilValue;
 END_RCPP
 }
+// cpp_wkt_set_srid
+CharacterVector cpp_wkt_set_srid(CharacterVector wkt, IntegerVector srid, int precision, bool trim);
+RcppExport SEXP _wkutils_cpp_wkt_set_srid(SEXP wktSEXP, SEXP sridSEXP, SEXP precisionSEXP, SEXP trimSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< CharacterVector >::type wkt(wktSEXP);
+    Rcpp::traits::input_parameter< IntegerVector >::type srid(sridSEXP);
+    Rcpp::traits::input_parameter< int >::type precision(precisionSEXP);
+    Rcpp::traits::input_parameter< bool >::type trim(trimSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_wkt_set_srid(wkt, srid, precision, trim));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cpp_wkb_set_srid
+List cpp_wkb_set_srid(List wkb, IntegerVector srid, int endian);
+RcppExport SEXP _wkutils_cpp_wkb_set_srid(SEXP wkbSEXP, SEXP sridSEXP, SEXP endianSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< List >::type wkb(wkbSEXP);
+    Rcpp::traits::input_parameter< IntegerVector >::type srid(sridSEXP);
+    Rcpp::traits::input_parameter< int >::type endian(endianSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_wkb_set_srid(wkb, srid, endian));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cpp_wksxp_set_srid
+List cpp_wksxp_set_srid(List wksxp, IntegerVector srid);
+RcppExport SEXP _wkutils_cpp_wksxp_set_srid(SEXP wksxpSEXP, SEXP sridSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< List >::type wksxp(wksxpSEXP);
+    Rcpp::traits::input_parameter< IntegerVector >::type srid(sridSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_wksxp_set_srid(wksxp, srid));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cpp_wkt_set_z
+CharacterVector cpp_wkt_set_z(CharacterVector wkt, NumericVector z, int precision, bool trim);
+RcppExport SEXP _wkutils_cpp_wkt_set_z(SEXP wktSEXP, SEXP zSEXP, SEXP precisionSEXP, SEXP trimSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< CharacterVector >::type wkt(wktSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type z(zSEXP);
+    Rcpp::traits::input_parameter< int >::type precision(precisionSEXP);
+    Rcpp::traits::input_parameter< bool >::type trim(trimSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_wkt_set_z(wkt, z, precision, trim));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cpp_wkb_set_z
+List cpp_wkb_set_z(List wkb, NumericVector z, int endian);
+RcppExport SEXP _wkutils_cpp_wkb_set_z(SEXP wkbSEXP, SEXP zSEXP, SEXP endianSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< List >::type wkb(wkbSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type z(zSEXP);
+    Rcpp::traits::input_parameter< int >::type endian(endianSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_wkb_set_z(wkb, z, endian));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cpp_wksxp_set_z
+List cpp_wksxp_set_z(List wksxp, NumericVector z);
+RcppExport SEXP _wkutils_cpp_wksxp_set_z(SEXP wksxpSEXP, SEXP zSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< List >::type wksxp(wksxpSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type z(zSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_wksxp_set_z(wksxp, z));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cpp_wkt_has_non_finite
+LogicalVector cpp_wkt_has_non_finite(CharacterVector wkt);
+RcppExport SEXP _wkutils_cpp_wkt_has_non_finite(SEXP wktSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< CharacterVector >::type wkt(wktSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_wkt_has_non_finite(wkt));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cpp_wkb_has_non_finite
+LogicalVector cpp_wkb_has_non_finite(List wkb);
+RcppExport SEXP _wkutils_cpp_wkb_has_non_finite(SEXP wkbSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< List >::type wkb(wkbSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_wkb_has_non_finite(wkb));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cpp_wksxp_has_non_finite
+LogicalVector cpp_wksxp_has_non_finite(List wksxp);
+RcppExport SEXP _wkutils_cpp_wksxp_has_non_finite(SEXP wksxpSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< List >::type wksxp(wksxpSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_wksxp_has_non_finite(wksxp));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cpp_wkt_has_missing
+LogicalVector cpp_wkt_has_missing(CharacterVector wkt);
+RcppExport SEXP _wkutils_cpp_wkt_has_missing(SEXP wktSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< CharacterVector >::type wkt(wktSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_wkt_has_missing(wkt));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cpp_wkb_has_missing
+LogicalVector cpp_wkb_has_missing(List wkb);
+RcppExport SEXP _wkutils_cpp_wkb_has_missing(SEXP wkbSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< List >::type wkb(wkbSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_wkb_has_missing(wkb));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cpp_wksxp_has_missing
+LogicalVector cpp_wksxp_has_missing(List wksxp);
+RcppExport SEXP _wkutils_cpp_wksxp_has_missing(SEXP wksxpSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< List >::type wksxp(wksxpSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_wksxp_has_missing(wksxp));
+    return rcpp_result_gen;
+END_RCPP
+}
 // cpp_meta_wkb
 List cpp_meta_wkb(List wkb, bool recursive);
 RcppExport SEXP _wkutils_cpp_meta_wkb(SEXP wkbSEXP, SEXP recursiveSEXP) {
@@ -354,6 +498,49 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// cpp_wkt_unnest
+CharacterVector cpp_wkt_unnest(CharacterVector wkt, bool keepEmpty, bool keepMulti, int maxUnnestDepth);
+RcppExport SEXP _wkutils_cpp_wkt_unnest(SEXP wktSEXP, SEXP keepEmptySEXP, SEXP keepMultiSEXP, SEXP maxUnnestDepthSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< CharacterVector >::type wkt(wktSEXP);
+    Rcpp::traits::input_parameter< bool >::type keepEmpty(keepEmptySEXP);
+    Rcpp::traits::input_parameter< bool >::type keepMulti(keepMultiSEXP);
+    Rcpp::traits::input_parameter< int >::type maxUnnestDepth(maxUnnestDepthSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_wkt_unnest(wkt, keepEmpty, keepMulti, maxUnnestDepth));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cpp_wkb_unnest
+List cpp_wkb_unnest(List wkb, bool keepEmpty, bool keepMulti, int maxUnnestDepth, int endian);
+RcppExport SEXP _wkutils_cpp_wkb_unnest(SEXP wkbSEXP, SEXP keepEmptySEXP, SEXP keepMultiSEXP, SEXP maxUnnestDepthSEXP, SEXP endianSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< List >::type wkb(wkbSEXP);
+    Rcpp::traits::input_parameter< bool >::type keepEmpty(keepEmptySEXP);
+    Rcpp::traits::input_parameter< bool >::type keepMulti(keepMultiSEXP);
+    Rcpp::traits::input_parameter< int >::type maxUnnestDepth(maxUnnestDepthSEXP);
+    Rcpp::traits::input_parameter< int >::type endian(endianSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_wkb_unnest(wkb, keepEmpty, keepMulti, maxUnnestDepth, endian));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cpp_wksxp_unnest
+List cpp_wksxp_unnest(List wksxp, bool keepEmpty, bool keepMulti, int maxUnnestDepth);
+RcppExport SEXP _wkutils_cpp_wksxp_unnest(SEXP wksxpSEXP, SEXP keepEmptySEXP, SEXP keepMultiSEXP, SEXP maxUnnestDepthSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< List >::type wksxp(wksxpSEXP);
+    Rcpp::traits::input_parameter< bool >::type keepEmpty(keepEmptySEXP);
+    Rcpp::traits::input_parameter< bool >::type keepMulti(keepMultiSEXP);
+    Rcpp::traits::input_parameter< int >::type maxUnnestDepth(maxUnnestDepthSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_wksxp_unnest(wksxp, keepEmpty, keepMulti, maxUnnestDepth));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_wkutils_cpp_coords_point_translate_wkt", (DL_FUNC) &_wkutils_cpp_coords_point_translate_wkt, 6},
@@ -372,6 +559,18 @@ static const R_CallMethodDef CallEntries[] = {
     {"_wkutils_cpp_debug_wkt", (DL_FUNC) &_wkutils_cpp_debug_wkt, 1},
     {"_wkutils_cpp_debug_wkt_streamer", (DL_FUNC) &_wkutils_cpp_debug_wkt_streamer, 1},
     {"_wkutils_cpp_debug_wksxp", (DL_FUNC) &_wkutils_cpp_debug_wksxp, 1},
+    {"_wkutils_cpp_wkt_set_srid", (DL_FUNC) &_wkutils_cpp_wkt_set_srid, 4},
+    {"_wkutils_cpp_wkb_set_srid", (DL_FUNC) &_wkutils_cpp_wkb_set_srid, 3},
+    {"_wkutils_cpp_wksxp_set_srid", (DL_FUNC) &_wkutils_cpp_wksxp_set_srid, 2},
+    {"_wkutils_cpp_wkt_set_z", (DL_FUNC) &_wkutils_cpp_wkt_set_z, 4},
+    {"_wkutils_cpp_wkb_set_z", (DL_FUNC) &_wkutils_cpp_wkb_set_z, 3},
+    {"_wkutils_cpp_wksxp_set_z", (DL_FUNC) &_wkutils_cpp_wksxp_set_z, 2},
+    {"_wkutils_cpp_wkt_has_non_finite", (DL_FUNC) &_wkutils_cpp_wkt_has_non_finite, 1},
+    {"_wkutils_cpp_wkb_has_non_finite", (DL_FUNC) &_wkutils_cpp_wkb_has_non_finite, 1},
+    {"_wkutils_cpp_wksxp_has_non_finite", (DL_FUNC) &_wkutils_cpp_wksxp_has_non_finite, 1},
+    {"_wkutils_cpp_wkt_has_missing", (DL_FUNC) &_wkutils_cpp_wkt_has_missing, 1},
+    {"_wkutils_cpp_wkb_has_missing", (DL_FUNC) &_wkutils_cpp_wkb_has_missing, 1},
+    {"_wkutils_cpp_wksxp_has_missing", (DL_FUNC) &_wkutils_cpp_wksxp_has_missing, 1},
     {"_wkutils_cpp_meta_wkb", (DL_FUNC) &_wkutils_cpp_meta_wkb, 2},
     {"_wkutils_cpp_meta_wkt", (DL_FUNC) &_wkutils_cpp_meta_wkt, 2},
     {"_wkutils_cpp_meta_wkt_streamer", (DL_FUNC) &_wkutils_cpp_meta_wkt_streamer, 2},
@@ -382,6 +581,9 @@ static const R_CallMethodDef CallEntries[] = {
     {"_wkutils_cpp_feature_ranges_wkb", (DL_FUNC) &_wkutils_cpp_feature_ranges_wkb, 3},
     {"_wkutils_cpp_feature_ranges_wkt", (DL_FUNC) &_wkutils_cpp_feature_ranges_wkt, 3},
     {"_wkutils_cpp_feature_ranges_wksxp", (DL_FUNC) &_wkutils_cpp_feature_ranges_wksxp, 3},
+    {"_wkutils_cpp_wkt_unnest", (DL_FUNC) &_wkutils_cpp_wkt_unnest, 4},
+    {"_wkutils_cpp_wkb_unnest", (DL_FUNC) &_wkutils_cpp_wkb_unnest, 5},
+    {"_wkutils_cpp_wksxp_unnest", (DL_FUNC) &_wkutils_cpp_wksxp_unnest, 4},
     {NULL, NULL, 0}
 };
 
