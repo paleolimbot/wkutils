@@ -28,5 +28,6 @@ LinkingTo:
     Rcpp
 Suggests: 
     testthat
+Remotes: paleolimbot/wk
 URL: https://github.com/paleolimbot/wkutils
 BugReports: https://github.com/paleolimbot/wkutils/issues
