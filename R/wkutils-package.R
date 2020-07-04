@@ -6,5 +6,7 @@
 ## usethis namespace: start
 #' @useDynLib wkutils, .registration = TRUE
 #' @importFrom Rcpp sourceCpp
+#' @import wk
+#' @importFrom rlang %||%
 ## usethis namespace: end
 NULL
