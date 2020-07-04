@@ -1,0 +1,69 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%",
+  dpi = 300
+)
+```
+
+# wkutils
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+Whereas the [wk package](https://paleolimbot.github.io/wk) provides headers and class definitions for well-known geometry formats, this package uses those headers to interrogate and transform these vectors. 
+
+## Installation
+
+You can install the released version of wkutils from [CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("wkutils")
+```
+
+And the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("remotes")
+remotes::install_github("paleolimbot/wkutils")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library(wkutils)
+
+wkt_coords("POINT (30 10)")
+coords_point_translate_wkt(30, 10)
+wkt_debug("POINT (30 10)")
+wkt_set_srid("POINT (30 10)", 1234)
+wkt_set_z("POINT (30 10)", 1234)
+wkt_meta("POINT (30 10)")
+wkt_ranges("POINT (30 10)")
+```
+
+The package also contains plot methods for `wk::wkb()`, `wk::wkt()`, and `wk::wksxp()` vectors. These aren't intended to be high-performance, but are helpful for debugging geometries.
+
+```{r wkt-plot}
+plot(wk::wkt("LINESTRING (1 2, 4 7)"))
+plot(wk::wkt("POINT (3 4)"), add = T)
+```
+
+Finally, the package contains high-performance functions to send points, lines, and polygons to a graphics device:
+
+```{r wk-draw}
+nc_sf <- sf::read_sf(system.file("shape/nc.shp", package = "sf"))
+nc_wkb <- wk::as_wkb(sf::st_as_binary(nc_sf$geometry))
+wkb_plot_new(nc_wkb)
+wkb_draw_polypath(nc_wkb)
+```
