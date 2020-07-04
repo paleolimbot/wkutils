@@ -1,6 +1,4 @@
 
-#include <unordered_map>
-
 #include "wk/wkt-writer.hpp"
 #include "wk/wkt-reader.hpp"
 #include "wk/wkb-writer.hpp"
@@ -12,6 +10,9 @@
 #include <Rcpp.h>
 #include "wk/rcpp-io.hpp"
 using namespace Rcpp;
+
+
+// --------- srid -------------
 
 class  WKSetSridFilter: public WKMetaFilter {
 public:
@@ -38,35 +39,6 @@ public:
 private:
   IntegerVector srid;
   int featureSrid;
-};
-
-
-class WKSetZFilter: public WKMetaFilter {
-public:
-  WKSetZFilter(WKGeometryHandler& handler, NumericVector z):
-    WKMetaFilter(handler), z(z), featureZ(NA_REAL) {}
-
-  virtual void nextFeatureStart(size_t featureId) {
-    this->featureZ = this->z[featureId];
-    WKMetaFilter::nextFeatureStart(featureId);
-  }
-
-  WKGeometryMeta newGeometryMeta(const WKGeometryMeta& meta, uint32_t partId) {
-    WKGeometryMeta newMeta(meta);
-    newMeta.hasZ = !NumericVector::is_na(this->featureZ);
-    return newMeta;
-  }
-
-  virtual void nextCoordinate(const WKGeometryMeta& meta, const WKCoord& coord, uint32_t coordId) {
-    WKCoord newCoord(coord);
-    newCoord.z = this->featureZ;
-    newCoord.hasZ = !NumericVector::is_na(this->featureZ);
-    WKMetaFilter::nextCoordinate(meta, newCoord, coordId);
-  }
-
-private:
-  NumericVector z;
-  double featureZ;
 };
 
 
@@ -116,6 +88,37 @@ List cpp_wksxp_set_srid(List wksxp, IntegerVector srid) {
   set_srid_base(reader, writer, srid);
   return exporter.output;
 }
+
+// ----------- set z -------------
+
+
+class WKSetZFilter: public WKMetaFilter {
+public:
+  WKSetZFilter(WKGeometryHandler& handler, NumericVector z):
+  WKMetaFilter(handler), z(z), featureZ(NA_REAL) {}
+
+  virtual void nextFeatureStart(size_t featureId) {
+    this->featureZ = this->z[featureId];
+    WKMetaFilter::nextFeatureStart(featureId);
+  }
+
+  WKGeometryMeta newGeometryMeta(const WKGeometryMeta& meta, uint32_t partId) {
+    WKGeometryMeta newMeta(meta);
+    newMeta.hasZ = !NumericVector::is_na(this->featureZ);
+    return newMeta;
+  }
+
+  virtual void nextCoordinate(const WKGeometryMeta& meta, const WKCoord& coord, uint32_t coordId) {
+    WKCoord newCoord(coord);
+    newCoord.z = this->featureZ;
+    newCoord.hasZ = !NumericVector::is_na(this->featureZ);
+    WKMetaFilter::nextCoordinate(meta, newCoord, coordId);
+  }
+
+private:
+  NumericVector z;
+  double featureZ;
+};
 
 
 void set_z_base(WKReader& reader, WKWriter& writer, NumericVector z) {
