@@ -1,4 +1,5 @@
 
+#include <unordered_map>
 #include "wk/geometry-handler.hpp"
 #include "wk/wkb-reader.hpp"
 #include "wk/wkt-reader.hpp"
@@ -8,12 +9,6 @@
 #include "wk/rcpp-io.hpp"
 #include "wk/rcpp-sexp-reader.hpp"
 using namespace Rcpp;
-
-class WKMetaFoundException: public WKParseException {
-public:
-  static const int CODE_META_FOUND = 294873;
-  WKMetaFoundException(): WKParseException(CODE_META_FOUND) {}
-};
 
 class WKMetaCounter: public WKGeometryHandler {
 public:
@@ -28,8 +23,6 @@ public:
     this->nMeta++;
   }
 };
-
-
 
 class WKMetaAssembler: public WKGeometryHandler {
 public:
@@ -72,6 +65,7 @@ public:
 
   void nextFeatureStart(size_t featureId) {
     this->lastFeatureId = featureId + 1;
+    this->featureHasMeta = false;
   }
 
   void nextNull(size_t featureId) {
@@ -90,6 +84,10 @@ public:
   }
 
   void nextGeometryStart(const WKGeometryMeta& meta, uint32_t partId) {
+    if (!this->recursive && this->featureHasMeta) {
+      return;
+    }
+
     this->syncNCoords();
     this->lastPartId = this->lastPartId + 1;
 
@@ -115,32 +113,15 @@ public:
 
     this->i++;
 
-    if (!recursive) {
-      if (meta.hasSize &&
-           (meta.geometryType == WKGeometryType::Point ||
-            meta.geometryType == WKGeometryType::LineString)) {
-        this->nCoords = meta.size;
-      } else {
-        this->nCoords = NA_INTEGER;
-      }
-
-      throw WKMetaFoundException();
+    if (!this->recursive) {
+      // much faster than using exceptions, with the added bonus that
+      // we get the number of coordinates as well!
+      this->featureHasMeta = true;
     }
   }
 
-  // this won't get called if recursive = false, but will if it is true
   void nextCoordinate(const WKGeometryMeta& meta, const WKCoord& coord, uint32_t coordId) {
     this->nCoords++;
-  }
-
-  // throwing exceptions results in recursive searches being much faster
-  // for small geometries
-  bool nextError(WKParseException& error, size_t featureId) {
-    if (error.code() == WKMetaFoundException::CODE_META_FOUND) {
-      return true;
-    } else {
-      return false;
-    }
   }
 
   void syncNCoords() {
@@ -156,6 +137,7 @@ protected:
   int lastPartId;
   int nCoords;
   bool recursive;
+  bool featureHasMeta;
 };
 
 List cpp_meta_base(WKReader& reader, bool recursive) {

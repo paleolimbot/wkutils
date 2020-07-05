@@ -59,7 +59,7 @@ test_that("wkt_streamer_meta() works", {
       srid = NA_integer_,
       has_z = FALSE,
       has_m = FALSE,
-      n_coords = NA_integer_
+      n_coords = 1L
     )
   )
 
@@ -74,7 +74,7 @@ test_that("wkt_streamer_meta() works", {
       srid = NA_integer_,
       has_z = FALSE,
       has_m = FALSE,
-      n_coords = NA_integer_
+      n_coords = 1L
     )
   )
 
@@ -104,7 +104,7 @@ test_that("wkt_streamer_meta() works", {
       srid = NA_integer_,
       has_z = FALSE,
       has_m = FALSE,
-      n_coords = NA_integer_
+      n_coords = 1L
     )
   )
 
@@ -167,7 +167,7 @@ test_that("wkt_streamer_meta() returns SRIDs if present", {
       srid = 33L,
       has_z = FALSE,
       has_m = FALSE,
-      n_coords = NA_integer_
+      n_coords = 1L
     )
   )
 })
