@@ -38,7 +38,7 @@ remotes::install_github("paleolimbot/wkutils")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+The gist of the functions in this package:
 
 ```{r example}
 library(wkutils)
@@ -59,7 +59,7 @@ plot(wk::wkt("LINESTRING (1 2, 4 7)"))
 plot(wk::wkt("POINT (3 4)"), add = T)
 ```
 
-Finally, the package contains high-performance functions to send points, lines, and polygons to a graphics device:
+Finally, the package contains slightly faster functions to send points, lines, and polygons to a graphics device:
 
 ```{r wk-draw}
 nc_sf <- sf::read_sf(system.file("shape/nc.shp", package = "sf"))

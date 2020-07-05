@@ -29,7 +29,7 @@ remotes::install_github("paleolimbot/wkutils")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+The gist of the functions in this package:
 
 ``` r
 library(wkutils)
@@ -74,7 +74,7 @@ plot(wk::wkt("POINT (3 4)"), add = T)
 
 <img src="man/figures/README-wkt-plot-1.png" width="100%" />
 
-Finally, the package contains high-performance functions to send points,
+Finally, the package contains slightly faster functions to send points,
 lines, and polygons to a graphics device:
 
 ``` r
