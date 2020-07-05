@@ -306,6 +306,45 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// cpp_wkt_transform
+CharacterVector cpp_wkt_transform(CharacterVector wkt, NumericVector transform, int precision, bool trim);
+RcppExport SEXP _wkutils_cpp_wkt_transform(SEXP wktSEXP, SEXP transformSEXP, SEXP precisionSEXP, SEXP trimSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< CharacterVector >::type wkt(wktSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type transform(transformSEXP);
+    Rcpp::traits::input_parameter< int >::type precision(precisionSEXP);
+    Rcpp::traits::input_parameter< bool >::type trim(trimSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_wkt_transform(wkt, transform, precision, trim));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cpp_wkb_transform
+List cpp_wkb_transform(List wkb, NumericVector transform, int endian);
+RcppExport SEXP _wkutils_cpp_wkb_transform(SEXP wkbSEXP, SEXP transformSEXP, SEXP endianSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< List >::type wkb(wkbSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type transform(transformSEXP);
+    Rcpp::traits::input_parameter< int >::type endian(endianSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_wkb_transform(wkb, transform, endian));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cpp_wksxp_transform
+List cpp_wksxp_transform(List wksxp, NumericVector transform);
+RcppExport SEXP _wkutils_cpp_wksxp_transform(SEXP wksxpSEXP, SEXP transformSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< List >::type wksxp(wksxpSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type transform(transformSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_wksxp_transform(wksxp, transform));
+    return rcpp_result_gen;
+END_RCPP
+}
 // cpp_wkt_has_non_finite
 LogicalVector cpp_wkt_has_non_finite(CharacterVector wkt);
 RcppExport SEXP _wkutils_cpp_wkt_has_non_finite(SEXP wktSEXP) {
@@ -565,6 +604,9 @@ static const R_CallMethodDef CallEntries[] = {
     {"_wkutils_cpp_wkt_set_z", (DL_FUNC) &_wkutils_cpp_wkt_set_z, 4},
     {"_wkutils_cpp_wkb_set_z", (DL_FUNC) &_wkutils_cpp_wkb_set_z, 3},
     {"_wkutils_cpp_wksxp_set_z", (DL_FUNC) &_wkutils_cpp_wksxp_set_z, 2},
+    {"_wkutils_cpp_wkt_transform", (DL_FUNC) &_wkutils_cpp_wkt_transform, 4},
+    {"_wkutils_cpp_wkb_transform", (DL_FUNC) &_wkutils_cpp_wkb_transform, 3},
+    {"_wkutils_cpp_wksxp_transform", (DL_FUNC) &_wkutils_cpp_wksxp_transform, 2},
     {"_wkutils_cpp_wkt_has_non_finite", (DL_FUNC) &_wkutils_cpp_wkt_has_non_finite, 1},
     {"_wkutils_cpp_wkb_has_non_finite", (DL_FUNC) &_wkutils_cpp_wkb_has_non_finite, 1},
     {"_wkutils_cpp_wksxp_has_non_finite", (DL_FUNC) &_wkutils_cpp_wksxp_has_non_finite, 1},

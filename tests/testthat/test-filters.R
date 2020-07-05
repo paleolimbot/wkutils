@@ -82,3 +82,51 @@ test_that("wksxp_set_z works", {
     unclass(as_wksxp("POINT Z (30 10 1234)"))
   )
 })
+
+test_that("wkt_transform works", {
+  tx <- 3
+  ty <- 7
+  t_test_trans <- matrix(c(1, 0, 0, 0, 1, 0, tx, ty, 1), ncol = 3)
+
+  t_test_rotate45 <- matrix(
+    c(0.707106781186548, -0.707106781186547, 0, 0.707106781186547,
+      0.707106781186548, 0, 0, 0, 1),
+    ncol = 3
+  )
+
+  expect_identical(wkt_transform("POINT (0 0)", t_test_trans), "POINT (3 7)")
+  expect_identical(wkt_transform("POINT (0 0)", t_test_rotate45), "POINT (0 0)")
+  expect_identical(
+    wkt_transform(sprintf("POINT (%s 0)", sqrt(2)), t_test_rotate45, precision = 10),
+    "POINT (1 -1)"
+  )
+
+  expect_identical(
+    wkt_transform(
+      sprintf("POINT (%s 0)", sqrt(2)),
+      t_test_trans %*% t_test_rotate45,
+      precision = 10
+    ),
+    "POINT (4 6)"
+  )
+})
+
+test_that("wkb_transform works", {
+  tx <- 3
+  ty <- 7
+  t_test_trans <- matrix(c(1, 0, 0, 0, 1, 0, tx, ty, 1), ncol = 3)
+  expect_identical(
+    wkb_transform(as_wkb("POINT (0 0)"), t_test_trans),
+    wkt_translate_wkb("POINT (3 7)")
+  )
+})
+
+test_that("wksxp_transform works", {
+  tx <- 3
+  ty <- 7
+  t_test_trans <- matrix(c(1, 0, 0, 0, 1, 0, tx, ty, 1), ncol = 3)
+  expect_identical(
+    wksxp_transform(as_wksxp("POINT (0 0)"), t_test_trans),
+    wkt_translate_wksxp("POINT (3 7)")
+  )
+})

@@ -89,6 +89,18 @@ cpp_wksxp_set_z <- function(wksxp, z) {
     .Call(`_wkutils_cpp_wksxp_set_z`, wksxp, z)
 }
 
+cpp_wkt_transform <- function(wkt, transform, precision = 16L, trim = TRUE) {
+    .Call(`_wkutils_cpp_wkt_transform`, wkt, transform, precision, trim)
+}
+
+cpp_wkb_transform <- function(wkb, transform, endian) {
+    .Call(`_wkutils_cpp_wkb_transform`, wkb, transform, endian)
+}
+
+cpp_wksxp_transform <- function(wksxp, transform) {
+    .Call(`_wkutils_cpp_wksxp_transform`, wksxp, transform)
+}
+
 cpp_wkt_has_non_finite <- function(wkt) {
     .Call(`_wkutils_cpp_wkt_has_non_finite`, wkt)
 }

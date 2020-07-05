@@ -7,6 +7,9 @@
 \alias{wkt_set_z}
 \alias{wkb_set_z}
 \alias{wksxp_set_z}
+\alias{wkt_transform}
+\alias{wkb_transform}
+\alias{wksxp_transform}
 \title{Modify well-known geometries}
 \usage{
 wkt_set_srid(wkt, srid, precision = 16, trim = TRUE)
@@ -20,6 +23,12 @@ wkt_set_z(wkt, z, precision = 16, trim = TRUE)
 wkb_set_z(wkb, z)
 
 wksxp_set_z(wksxp, z)
+
+wkt_transform(wkt, trans, precision = 16, trim = TRUE)
+
+wkb_transform(wkb, trans)
+
+wksxp_transform(wksxp, trans)
 }
 \arguments{
 \item{wkt}{A character vector containing well-known text.}
@@ -39,6 +48,9 @@ returned by \code{\link[sf:st_as_binary]{sf::st_as_binary()}}.}
 
 \item{z}{A Z value that will be assigned to every coordinate in each feature.
 Use \code{NA} to unset this value.}
+
+\item{trans}{A 3x3 transformation matrix that will be applied to all coordinates
+in the input.}
 }
 \value{
 An unclassed well-known vector with the same type
@@ -50,5 +62,10 @@ Modify well-known geometries
 \examples{
 wkt_set_srid("POINT (30 10)", 1234)
 wkt_set_z("POINT (30 10)", 1234)
+wkt_transform(
+  "POINT (0 0)",
+  # translation +12 +13
+  matrix(c(1, 0, 0, 0, 1, 0, 12, 13, 1), ncol = 3)
+)
 
 }
