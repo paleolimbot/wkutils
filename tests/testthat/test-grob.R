@@ -1,5 +1,8 @@
 
 test_that("wkt_grob() works", {
+  expect_is(wkt_grob(character(0)), "gTree")
+  expect_is(wkt_grob("POINT EMPTY"), "gTree")
+
   grob_points <- wkt_grob(
     c("POINT (0.1 0.1)", "POINT (0.9 0.9)"),
     pch = c(1, 16), col = c("black", "red"),

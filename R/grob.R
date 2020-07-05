@@ -99,6 +99,13 @@ grob_wk_possibly_nested <- function(x, ..., unnest_fun, meta_fun, coords_fun,
   }
 
   coords <- coords_fun(x)
+
+  # grid doesn't do zero-length input, so if there are no coordinates, return
+  # an empty grob
+  if (nrow(coords) == 0) {
+    return(grid::gTree(name = name, vp = vp, children = grid::gList()))
+  }
+
   grob_wk_base(
     meta, coords, gpar_values_all,
     rule = rule,
