@@ -86,13 +86,13 @@
 <p>And the development version from <a href="https://github.com/">GitHub</a> with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit">
 <span class="co"># install.packages("remotes")</span>
-<span class="kw">remotes</span>::<span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"paleolimbot/wkutils"</span>)
+<span class="kw">remotes</span>::<span class="fu"><a href="https://rdrr.io/pkg/remotes/man/install_github.html">install_github</a></span>(<span class="st">"paleolimbot/wkutils"</span>)
 </pre></div>
 </div>
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
-<p>This is a basic example which shows you how to solve a common problem:</p>
+<p>The gist of the functions in this package:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit">
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/paleolimbot/wkutils">wkutils</a></span>)
 
@@ -130,7 +130,7 @@
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span>(<span class="kw">wk</span>::<span class="fu"><a href="https://rdrr.io/pkg/wk/man/wkt.html">wkt</a></span>(<span class="st">"POINT (3 4)"</span>), add = <span class="kw">T</span>)
 </pre></div>
 <p><img src="reference/figures/README-wkt-plot-1.png" width="100%"></p>
-<p>Finally, the package contains high-performance functions to send points, lines, and polygons to a graphics device:</p>
+<p>Finally, the package contains slightly faster functions to send points, lines, and polygons to a graphics device:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit">
 <span class="kw">nc_sf</span> <span class="op">&lt;-</span> <span class="kw">sf</span>::<span class="fu">read_sf</span>(<span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"shape/nc.shp"</span>, package = <span class="st">"sf"</span>))
 <span class="kw">nc_wkb</span> <span class="op">&lt;-</span> <span class="kw">wk</span>::<span class="fu"><a href="https://rdrr.io/pkg/wk/man/wkb.html">as_wkb</a></span>(<span class="kw">sf</span>::<span class="fu">st_as_binary</span>(<span class="kw">nc_sf</span><span class="op">$</span><span class="kw">geometry</span>))

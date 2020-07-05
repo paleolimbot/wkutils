@@ -127,7 +127,13 @@
 
 <span class='fu'><a href='https://rdrr.io/pkg/wkutils/man/wkt_set_srid.html'>wkb_set_z</a></span>(<span class='kw'>wkb</span>, <span class='kw'>z</span>)
 
-<span class='fu'><a href='https://rdrr.io/pkg/wkutils/man/wkt_set_srid.html'>wksxp_set_z</a></span>(<span class='kw'>wksxp</span>, <span class='kw'>z</span>)</pre>
+<span class='fu'><a href='https://rdrr.io/pkg/wkutils/man/wkt_set_srid.html'>wksxp_set_z</a></span>(<span class='kw'>wksxp</span>, <span class='kw'>z</span>)
+
+<span class='fu'><a href='https://rdrr.io/pkg/wkutils/man/wkt_set_srid.html'>wkt_transform</a></span>(<span class='kw'>wkt</span>, <span class='kw'>trans</span>, precision = <span class='fl'>16</span>, trim = <span class='fl'>TRUE</span>)
+
+<span class='fu'><a href='https://rdrr.io/pkg/wkutils/man/wkt_set_srid.html'>wkb_transform</a></span>(<span class='kw'>wkb</span>, <span class='kw'>trans</span>)
+
+<span class='fu'><a href='https://rdrr.io/pkg/wkutils/man/wkt_set_srid.html'>wksxp_transform</a></span>(<span class='kw'>wksxp</span>, <span class='kw'>trans</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -164,6 +170,11 @@ returned by <code>sf::st_as_binary()</code>.</p></td>
       <td><p>A Z value that will be assigned to every coordinate in each feature.
 Use <code>NA</code> to unset this value.</p></td>
     </tr>
+    <tr>
+      <th>trans</th>
+      <td><p>A 3x3 transformation matrix that will be applied to all coordinates
+in the input.</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -172,7 +183,11 @@ Use <code>NA</code> to unset this value.</p></td>
 as the input.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/wkutils/man/wkt_set_srid.html'>wkt_set_srid</a></span>(<span class='st'>"POINT (30 10)"</span>, <span class='fl'>1234</span>)</div><div class='output co'>#&gt; [1] "SRID=1234;POINT (30 10)"</div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/wkutils/man/wkt_set_srid.html'>wkt_set_z</a></span>(<span class='st'>"POINT (30 10)"</span>, <span class='fl'>1234</span>)</div><div class='output co'>#&gt; [1] "POINT Z (30 10 1234)"</div><div class='input'></div></pre>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/wkutils/man/wkt_set_srid.html'>wkt_set_srid</a></span>(<span class='st'>"POINT (30 10)"</span>, <span class='fl'>1234</span>)</div><div class='output co'>#&gt; [1] "SRID=1234;POINT (30 10)"</div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/wkutils/man/wkt_set_srid.html'>wkt_set_z</a></span>(<span class='st'>"POINT (30 10)"</span>, <span class='fl'>1234</span>)</div><div class='output co'>#&gt; [1] "POINT Z (30 10 1234)"</div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/wkutils/man/wkt_set_srid.html'>wkt_transform</a></span>(
+  <span class='st'>"POINT (0 0)"</span>,
+  <span class='co'># translation +12 +13</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>12</span>, <span class='fl'>13</span>, <span class='fl'>1</span>), ncol = <span class='fl'>3</span>)
+)</div><div class='output co'>#&gt; [1] "POINT (12 13)"</div><div class='input'></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
