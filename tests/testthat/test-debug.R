@@ -8,7 +8,7 @@ test_that("debugger works on wkb", {
 
   point_bad_type <- point
   point_bad_type[2] <- as.raw(0xff)
-  expect_output(wkb_debug(list(point_bad_type)), "Unrecognized geometry type")
+  expect_output(wkb_debug(list(point_bad_type)), "Invalid integer geometry type")
 })
 
 test_that("debugger works on wkt stream", {
