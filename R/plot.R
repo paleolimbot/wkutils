@@ -19,11 +19,11 @@
 #' @export
 #'
 #' @examples
-#' plot(wk::wkt("POINT (30 10)"))
+#' wkt_plot("POINT (30 10)")
 #'
-plot.wk_wkt <- function(x, ...,
-                        asp = 1, bbox = NULL, xlab = "", ylab = "",
-                        rule = "evenodd", add = FALSE) {
+wkt_plot <- function(x, ...,
+                     asp = 1, bbox = NULL, xlab = "", ylab = "",
+                     rule = "evenodd", add = FALSE) {
   plot_wk(
     x, wkt_ranges, wkt_meta, wkt_coords,
     ...,
@@ -32,11 +32,11 @@ plot.wk_wkt <- function(x, ...,
   )
 }
 
-#' @rdname plot.wk_wkt
+#' @rdname wkt_plot
 #' @export
-plot.wk_wkb <- function(x, ...,
-                        asp = 1, bbox = NULL, xlab = "", ylab = "",
-                        rule = "evenodd", add = FALSE) {
+wkb_plot <- function(x, ...,
+                     asp = 1, bbox = NULL, xlab = "", ylab = "",
+                     rule = "evenodd", add = FALSE) {
   plot_wk(
     x, wkb_ranges, wkb_meta, wkb_coords,
     ...,
@@ -45,11 +45,11 @@ plot.wk_wkb <- function(x, ...,
   )
 }
 
-#' @rdname plot.wk_wkt
+#' @rdname wkt_plot
 #' @export
-plot.wk_wksxp <- function(x, ...,
-                          asp = 1, bbox = NULL, xlab = "", ylab = "",
-                          rule = "evenodd", add = FALSE) {
+wksxp_plot <- function(x, ...,
+                       asp = 1, bbox = NULL, xlab = "", ylab = "",
+                       rule = "evenodd", add = FALSE) {
   plot_wk(
     x, wksxp_ranges, wksxp_meta, wksxp_coords,
     ...,

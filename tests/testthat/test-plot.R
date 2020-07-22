@@ -1,5 +1,5 @@
 
-test_that("plot.wk_wkt works", {
+test_that("wk*_plot works", {
   example_wkt <- c(
     NA,
     "POINT (30 10)",
@@ -27,9 +27,9 @@ test_that("plot.wk_wkt works", {
     "GEOMETRYCOLLECTION EMPTY"
   )
 
-  plot(as_wkt(example_wkt))
-  plot(as_wkb(example_wkt))
-  plot(as_wksxp(example_wkt))
+  wkt_plot(as_wkt(example_wkt))
+  wkb_plot(as_wkb(example_wkt))
+  wksxp_plot(as_wksxp(example_wkt))
 
   expect_true(TRUE)
 })
