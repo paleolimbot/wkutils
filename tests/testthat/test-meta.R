@@ -9,8 +9,7 @@ test_that("wkb_meta() works", {
       size = 1L,
       srid = NA_integer_,
       has_z = FALSE,
-      has_m = FALSE,
-      n_coords = 1L
+      has_m = FALSE
     )
   )
 })
@@ -25,8 +24,7 @@ test_that("wkt_meta() works", {
       size = 1L,
       srid = NA_integer_,
       has_z = FALSE,
-      has_m = FALSE,
-      n_coords = 1L
+      has_m = FALSE
     )
   )
 })
@@ -41,8 +39,7 @@ test_that("wkb_meta() works", {
       size = 1L,
       srid = NA_integer_,
       has_z = FALSE,
-      has_m = FALSE,
-      n_coords = 1L
+      has_m = FALSE
     )
   )
 })
@@ -58,8 +55,7 @@ test_that("wkt_streamer_meta() works", {
       size = NA_integer_,
       srid = NA_integer_,
       has_z = FALSE,
-      has_m = FALSE,
-      n_coords = 1L
+      has_m = FALSE
     )
   )
 
@@ -73,8 +69,7 @@ test_that("wkt_streamer_meta() works", {
       size = NA_integer_,
       srid = NA_integer_,
       has_z = FALSE,
-      has_m = FALSE,
-      n_coords = 1L
+      has_m = FALSE
     )
   )
 
@@ -88,8 +83,7 @@ test_that("wkt_streamer_meta() works", {
       size = c(NA_integer_, NA_integer_),
       srid = c(NA_integer_, NA_integer_),
       has_z = c(FALSE, FALSE),
-      has_m = c(FALSE, FALSE),
-      n_coords = c(0L, 1L)
+      has_m = c(FALSE, FALSE)
     )
   )
 
@@ -103,8 +97,7 @@ test_that("wkt_streamer_meta() works", {
       size = NA_integer_,
       srid = NA_integer_,
       has_z = FALSE,
-      has_m = FALSE,
-      n_coords = 1L
+      has_m = FALSE
     )
   )
 
@@ -118,8 +111,7 @@ test_that("wkt_streamer_meta() works", {
       size = c(NA_integer_, NA_integer_, NA_integer_),
       srid = c(NA_integer_, NA_integer_, NA_integer_),
       has_z = c(FALSE, FALSE, NA),
-      has_m = c(FALSE, FALSE, NA),
-      n_coords = c(0L, 1L, NA_integer_)
+      has_m = c(FALSE, FALSE, NA)
     )
   )
 })
@@ -134,8 +126,7 @@ test_that("wkt_streamer_meta() works with NULLs", {
       size = NA_integer_,
       srid = NA_integer_,
       has_z = NA,
-      has_m = NA,
-      n_coords = NA_integer_
+      has_m = NA
     )
   )
 })
@@ -150,8 +141,7 @@ test_that("wkt_meta() counts coordinates when NULLs are present", {
       size = c(2L, NA_integer_),
       srid = c(NA_integer_, NA_integer_),
       has_z = c(FALSE, NA),
-      has_m = c(FALSE, NA),
-      n_coords = c(2L, NA_integer_)
+      has_m = c(FALSE, NA)
     )
   )
 })
@@ -166,8 +156,7 @@ test_that("wkt_streamer_meta() returns SRIDs if present", {
       size = NA_integer_,
       srid = 33L,
       has_z = FALSE,
-      has_m = FALSE,
-      n_coords = 1L
+      has_m = FALSE
     )
   )
 })

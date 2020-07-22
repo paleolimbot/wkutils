@@ -33,7 +33,6 @@ public:
   IntegerVector srid;
   LogicalVector hasZ;
   LogicalVector hasM;
-  IntegerVector nCoordinates;
 
   WKMetaAssembler(bool recursive, size_t nMeta):
     featureId(nMeta),
@@ -43,14 +42,11 @@ public:
     srid(nMeta),
     hasZ(nMeta),
     hasM(nMeta),
-    nCoordinates(nMeta),
     i(0),
     lastPartId(0),
-    nCoords(0),
     recursive(recursive) {}
 
   List assembleMeta() {
-    this->syncNCoords();
     return List::create(
       _["feature_id"] = this->featureId,
       _["part_id"] = this->partId,
@@ -58,8 +54,7 @@ public:
       _["size"] = this->size,
       _["srid"] = this->srid,
       _["has_z"] = this->hasZ,
-      _["has_m"] = this->hasM,
-      _["n_coords"] = this->nCoordinates
+      _["has_m"] = this->hasM
     );
   }
 
@@ -69,7 +64,6 @@ public:
   }
 
   void nextNull(size_t featureId) {
-    this->syncNCoords();
     this->featureId[i] = this->lastFeatureId;
     this->partId[i] = NA_INTEGER;
     this->typeId[i] = NA_INTEGER;
@@ -77,8 +71,6 @@ public:
     this->srid[i] = NA_INTEGER;
     this->hasZ[i] = NA_LOGICAL;
     this->hasM[i] = NA_LOGICAL;
-
-    this->nCoords = NA_INTEGER;
 
     this->i++;
   }
@@ -88,7 +80,6 @@ public:
       return;
     }
 
-    this->syncNCoords();
     this->lastPartId = this->lastPartId + 1;
 
     this->featureId[i] = this->lastFeatureId;
@@ -120,22 +111,10 @@ public:
     }
   }
 
-  void nextCoordinate(const WKGeometryMeta& meta, const WKCoord& coord, uint32_t coordId) {
-    this->nCoords++;
-  }
-
-  void syncNCoords() {
-    if (this->i > 0) {
-      this->nCoordinates[i - 1] = nCoords;
-      this->nCoords = 0;
-    }
-  }
-
 protected:
   R_xlen_t i;
   int lastFeatureId;
   int lastPartId;
-  int nCoords;
   bool recursive;
   bool featureHasMeta;
 };
