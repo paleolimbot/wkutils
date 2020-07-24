@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">wkutils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
 
@@ -86,6 +86,9 @@
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
+</li>
+<li>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -117,11 +120,11 @@
     <p>Flatten nested geometry structures</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/wkutils/man/wkt_unnest.html'>wkt_unnest</a></span>(<span class='kw'>wkt</span>, keep_empty = <span class='fl'>FALSE</span>, keep_multi = <span class='fl'>TRUE</span>, max_depth = <span class='fl'>1</span>)
+    <pre class="usage"><span class='fu'>wkt_unnest</span>(<span class='kw'>wkt</span>, keep_empty = <span class='fl'>FALSE</span>, keep_multi = <span class='fl'>TRUE</span>, max_depth = <span class='fl'>1</span>)
 
-<span class='fu'><a href='https://rdrr.io/pkg/wkutils/man/wkt_unnest.html'>wkb_unnest</a></span>(<span class='kw'>wkb</span>, keep_empty = <span class='fl'>FALSE</span>, keep_multi = <span class='fl'>TRUE</span>, max_depth = <span class='fl'>1</span>)
+<span class='fu'>wkb_unnest</span>(<span class='kw'>wkb</span>, keep_empty = <span class='fl'>FALSE</span>, keep_multi = <span class='fl'>TRUE</span>, max_depth = <span class='fl'>1</span>)
 
-<span class='fu'><a href='https://rdrr.io/pkg/wkutils/man/wkt_unnest.html'>wksxp_unnest</a></span>(<span class='kw'>wksxp</span>, keep_empty = <span class='fl'>FALSE</span>, keep_multi = <span class='fl'>TRUE</span>, max_depth = <span class='fl'>1</span>)</pre>
+<span class='fu'>wksxp_unnest</span>(<span class='kw'>wksxp</span>, keep_empty = <span class='fl'>FALSE</span>, keep_multi = <span class='fl'>TRUE</span>, max_depth = <span class='fl'>1</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -161,11 +164,11 @@ with the same length as the input denoting the length to which each
 feature was expanded.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/wkutils/man/wkt_unnest.html'>wkt_unnest</a></span>(<span class='st'>"GEOMETRYCOLLECTION (POINT (1 2), POINT (3 4))"</span>)</div><div class='output co'>#&gt; [1] "POINT (1 2)" "POINT (3 4)"
+    <pre class="examples"><div class='input'><span class='fu'>wkt_unnest</span>(<span class='st'>"GEOMETRYCOLLECTION (POINT (1 2), POINT (3 4))"</span>)</div><div class='output co'>#&gt; [1] "POINT (1 2)" "POINT (3 4)"
 #&gt; attr(,"lengths")
-#&gt; [1] 2</div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/wkutils/man/wkt_unnest.html'>wkt_unnest</a></span>(<span class='st'>"GEOMETRYCOLLECTION EMPTY"</span>)</div><div class='output co'>#&gt; character(0)
+#&gt; [1] 2</div><div class='input'><span class='fu'>wkt_unnest</span>(<span class='st'>"GEOMETRYCOLLECTION EMPTY"</span>)</div><div class='output co'>#&gt; character(0)
 #&gt; attr(,"lengths")
-#&gt; [1] 0</div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/wkutils/man/wkt_unnest.html'>wkt_unnest</a></span>(<span class='st'>"GEOMETRYCOLLECTION EMPTY"</span>, keep_empty = <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "GEOMETRYCOLLECTION EMPTY"
+#&gt; [1] 0</div><div class='input'><span class='fu'>wkt_unnest</span>(<span class='st'>"GEOMETRYCOLLECTION EMPTY"</span>, keep_empty = <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "GEOMETRYCOLLECTION EMPTY"
 #&gt; attr(,"lengths")
 #&gt; [1] 1</div><div class='input'></div></pre>
   </div>

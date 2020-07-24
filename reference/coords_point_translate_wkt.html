@@ -75,7 +75,7 @@ closed rings are assumed or required by many parsers." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">wkutils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
 
@@ -89,6 +89,9 @@ closed rings are assumed or required by many parsers." />
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
+</li>
+<li>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -117,15 +120,15 @@ closed rings are assumed or required by many parsers." />
     </div>
 
     <div class="ref-description">
-    <p>These functions provide the reverse function of <code><a href='https://rdrr.io/pkg/wkutils/man/wkb_coords.html'>wkt_coords()</a></code>
+    <p>These functions provide the reverse function of <code><a href='wkb_coords.html'>wkt_coords()</a></code>
 and company: they parse vectors of coordinate values into well-known
 formats. Polygon rings are automatically closed, as
 closed rings are assumed or required by many parsers.</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/wkutils/man/coords_point_translate_wkt.html'>coords_point_translate_wkt</a></span>(<span class='kw'>x</span>, <span class='kw'>y</span>, z = <span class='fl'>NA</span>, m = <span class='fl'>NA</span>, precision = <span class='fl'>16</span>, trim = <span class='fl'>TRUE</span>)
+    <pre class="usage"><span class='fu'>coords_point_translate_wkt</span>(<span class='kw'>x</span>, <span class='kw'>y</span>, z = <span class='fl'>NA</span>, m = <span class='fl'>NA</span>, precision = <span class='fl'>16</span>, trim = <span class='fl'>TRUE</span>)
 
-<span class='fu'><a href='https://rdrr.io/pkg/wkutils/man/coords_point_translate_wkt.html'>coords_point_translate_wkb</a></span>(
+<span class='fu'>coords_point_translate_wkb</span>(
   <span class='kw'>x</span>,
   <span class='kw'>y</span>,
   z = <span class='fl'>NA</span>,
@@ -134,9 +137,9 @@ closed rings are assumed or required by many parsers.</p>
   buffer_size = <span class='fl'>2048</span>
 )
 
-<span class='fu'><a href='https://rdrr.io/pkg/wkutils/man/coords_point_translate_wkt.html'>coords_point_translate_wksxp</a></span>(<span class='kw'>x</span>, <span class='kw'>y</span>, z = <span class='fl'>NA</span>, m = <span class='fl'>NA</span>)
+<span class='fu'>coords_point_translate_wksxp</span>(<span class='kw'>x</span>, <span class='kw'>y</span>, z = <span class='fl'>NA</span>, m = <span class='fl'>NA</span>)
 
-<span class='fu'><a href='https://rdrr.io/pkg/wkutils/man/coords_point_translate_wkt.html'>coords_linestring_translate_wkt</a></span>(
+<span class='fu'>coords_linestring_translate_wkt</span>(
   <span class='kw'>x</span>,
   <span class='kw'>y</span>,
   z = <span class='fl'>NA</span>,
@@ -146,7 +149,7 @@ closed rings are assumed or required by many parsers.</p>
   trim = <span class='fl'>TRUE</span>
 )
 
-<span class='fu'><a href='https://rdrr.io/pkg/wkutils/man/coords_point_translate_wkt.html'>coords_linestring_translate_wkb</a></span>(
+<span class='fu'>coords_linestring_translate_wkb</span>(
   <span class='kw'>x</span>,
   <span class='kw'>y</span>,
   z = <span class='fl'>NA</span>,
@@ -156,9 +159,9 @@ closed rings are assumed or required by many parsers.</p>
   buffer_size = <span class='fl'>2048</span>
 )
 
-<span class='fu'><a href='https://rdrr.io/pkg/wkutils/man/coords_point_translate_wkt.html'>coords_linestring_translate_wksxp</a></span>(<span class='kw'>x</span>, <span class='kw'>y</span>, z = <span class='fl'>NA</span>, m = <span class='fl'>NA</span>, feature_id = <span class='fl'>1L</span>)
+<span class='fu'>coords_linestring_translate_wksxp</span>(<span class='kw'>x</span>, <span class='kw'>y</span>, z = <span class='fl'>NA</span>, m = <span class='fl'>NA</span>, feature_id = <span class='fl'>1L</span>)
 
-<span class='fu'><a href='https://rdrr.io/pkg/wkutils/man/coords_point_translate_wkt.html'>coords_polygon_translate_wkt</a></span>(
+<span class='fu'>coords_polygon_translate_wkt</span>(
   <span class='kw'>x</span>,
   <span class='kw'>y</span>,
   z = <span class='fl'>NA</span>,
@@ -169,7 +172,7 @@ closed rings are assumed or required by many parsers.</p>
   trim = <span class='fl'>TRUE</span>
 )
 
-<span class='fu'><a href='https://rdrr.io/pkg/wkutils/man/coords_point_translate_wkt.html'>coords_polygon_translate_wkb</a></span>(
+<span class='fu'>coords_polygon_translate_wkb</span>(
   <span class='kw'>x</span>,
   <span class='kw'>y</span>,
   z = <span class='fl'>NA</span>,
@@ -180,7 +183,7 @@ closed rings are assumed or required by many parsers.</p>
   buffer_size = <span class='fl'>2048</span>
 )
 
-<span class='fu'><a href='https://rdrr.io/pkg/wkutils/man/coords_point_translate_wkt.html'>coords_polygon_translate_wksxp</a></span>(
+<span class='fu'>coords_polygon_translate_wksxp</span>(
   <span class='kw'>x</span>,
   <span class='kw'>y</span>,
   z = <span class='fl'>NA</span>,
@@ -233,7 +236,7 @@ of raw vectors, and <code>*_translate_wksxp()</code> returns an unclassed
 list of <code>wksxp()</code> geometries.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/wkutils/man/coords_point_translate_wkt.html'>coords_point_translate_wkt</a></span>(<span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span>, <span class='fl'>2</span><span class='op'>:</span><span class='fl'>4</span>)</div><div class='output co'>#&gt; [1] "POINT (1 2)" "POINT (2 3)" "POINT (3 4)"</div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/wkutils/man/coords_point_translate_wkt.html'>coords_linestring_translate_wkt</a></span>(<span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>, <span class='fl'>2</span><span class='op'>:</span><span class='fl'>6</span>, feature_id = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>2</span>))</div><div class='output co'>#&gt; [1] "LINESTRING (1 2, 2 3, 3 4)" "LINESTRING (4 5, 5 6)"     </div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/wkutils/man/coords_point_translate_wkt.html'>coords_polygon_translate_wkt</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>10</span>, <span class='fl'>0</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>10</span>))</div><div class='output co'>#&gt; [1] "POLYGON ((0 0, 10 0, 0 10, 0 0))"</div><div class='input'></div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>coords_point_translate_wkt</span>(<span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span>, <span class='fl'>2</span><span class='op'>:</span><span class='fl'>4</span>)</div><div class='output co'>#&gt; [1] "POINT (1 2)" "POINT (2 3)" "POINT (3 4)"</div><div class='input'><span class='fu'>coords_linestring_translate_wkt</span>(<span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>, <span class='fl'>2</span><span class='op'>:</span><span class='fl'>6</span>, feature_id = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>2</span>))</div><div class='output co'>#&gt; [1] "LINESTRING (1 2, 2 3, 3 4)" "LINESTRING (4 5, 5 6)"     </div><div class='input'><span class='fu'>coords_polygon_translate_wkt</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>10</span>, <span class='fl'>0</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>10</span>))</div><div class='output co'>#&gt; [1] "POLYGON ((0 0, 10 0, 0 10, 0 0))"</div><div class='input'></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

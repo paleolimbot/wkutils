@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>wkutils: Utilities for Well-Known Geometry Vectors — wkutils-package • wkutils</title>
+<title>Plot well-known geometry vectors — wkt_plot • wkutils</title>
 
 
 <!-- jquery -->
@@ -39,12 +39,9 @@
 
 
 
-<meta property="og:title" content="wkutils: Utilities for Well-Known Geometry Vectors — wkutils-package" />
-<meta property="og:description" content="Provides extra utilities for well-known formats in the
-  'wk' package that are outside the scope of that package. Utilities
-  to parse coordinates from data frames, plot well-known geometry
-  vectors, extract meta information from well-known geometry vectors,
-  and calculate bounding boxes are provided." />
+<meta property="og:title" content="Plot well-known geometry vectors — wkt_plot" />
+<meta property="og:description" content="These plot functions are intended to help debug geometry vectors,
+and are not intended to be high-performance." />
 
 
 
@@ -115,34 +112,88 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>wkutils: Utilities for Well-Known Geometry Vectors</h1>
-    <small class="dont-index">Source: <a href='https://github.com/paleolimbot/wkutils/blob/master/R/wkutils-package.R'><code>R/wkutils-package.R</code></a></small>
-    <div class="hidden name"><code>wkutils-package.Rd</code></div>
+    <h1>Plot well-known geometry vectors</h1>
+    <small class="dont-index">Source: <a href='https://github.com/paleolimbot/wkutils/blob/master/R/plot.R'><code>R/plot.R</code></a></small>
+    <div class="hidden name"><code>wkt_plot.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Provides extra utilities for well-known formats in the
-  'wk' package that are outside the scope of that package. Utilities
-  to parse coordinates from data frames, plot well-known geometry
-  vectors, extract meta information from well-known geometry vectors,
-  and calculate bounding boxes are provided.</p>
+    <p>These plot functions are intended to help debug geometry vectors,
+and are not intended to be high-performance.</p>
     </div>
 
+    <pre class="usage"><span class='fu'>wkt_plot</span>(
+  <span class='kw'>x</span>,
+  <span class='kw'>...</span>,
+  asp = <span class='fl'>1</span>,
+  bbox = <span class='kw'>NULL</span>,
+  xlab = <span class='st'>""</span>,
+  ylab = <span class='st'>""</span>,
+  rule = <span class='st'>"evenodd"</span>,
+  add = <span class='fl'>FALSE</span>
+)
 
+<span class='fu'>wkb_plot</span>(
+  <span class='kw'>x</span>,
+  <span class='kw'>...</span>,
+  asp = <span class='fl'>1</span>,
+  bbox = <span class='kw'>NULL</span>,
+  xlab = <span class='st'>""</span>,
+  ylab = <span class='st'>""</span>,
+  rule = <span class='st'>"evenodd"</span>,
+  add = <span class='fl'>FALSE</span>
+)
 
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+<span class='fu'>wksxp_plot</span>(
+  <span class='kw'>x</span>,
+  <span class='kw'>...</span>,
+  asp = <span class='fl'>1</span>,
+  bbox = <span class='kw'>NULL</span>,
+  xlab = <span class='st'>""</span>,
+  ylab = <span class='st'>""</span>,
+  rule = <span class='st'>"evenodd"</span>,
+  add = <span class='fl'>FALSE</span>
+)</pre>
 
-    <div class='dont-index'><p>Useful links:</p><ul>
-<li><p><a href='https://paleolimbot.github.io/wkutils'>https://paleolimbot.github.io/wkutils</a></p></li>
-<li><p><a href='https://github.com/paleolimbot/wkutils'>https://github.com/paleolimbot/wkutils</a></p></li>
-<li><p>Report bugs at <a href='https://github.com/paleolimbot/wkutils/issues'>https://github.com/paleolimbot/wkutils/issues</a></p></li>
-</ul>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>A <code>wkt()</code>, <code>wkb()</code>, or <code>wksxp()</code> vector.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Passed to plotting functions for features: <code><a href='https://rdrr.io/r/graphics/points.html'>graphics::points()</a></code>
+for point and multipoint geometries, <code><a href='https://rdrr.io/r/graphics/lines.html'>graphics::lines()</a></code> for linestring
+and multilinestring geometries, and <code><a href='https://rdrr.io/r/graphics/polypath.html'>graphics::polypath()</a></code> for polygon
+and multipolygon geometries.</p></td>
+    </tr>
+    <tr>
+      <th>asp, xlab, ylab</th>
+      <td><p>Passed to <code><a href='https://rdrr.io/r/graphics/plot.default.html'>graphics::plot()</a></code></p></td>
+    </tr>
+    <tr>
+      <th>bbox</th>
+      <td><p>The limits of the plot in the form returned by <code><a href='wkb_ranges.html'>wksxp_ranges()</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>rule</th>
+      <td><p>The rule to use for filling polygons (see <code><a href='https://rdrr.io/r/graphics/polypath.html'>graphics::polypath()</a></code>)</p></td>
+    </tr>
+    <tr>
+      <th>add</th>
+      <td><p>Should a new plot be created, or should <code>x</code> be added to the
+existing plot?</p></td>
+    </tr>
+    </table>
 
-</div>
-    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p><strong>Maintainer</strong>: Dewey Dunnington <a href='mailto:dewey@fishandwhistle.net'>dewey@fishandwhistle.net</a> (<a href='https://orcid.org/0000-0002-9415-4582'>ORCID</a>)</p>
+    <p><code>x</code>, invisibly</p>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>wkt_plot</span>(<span class='st'>"POINT (30 10)"</span>)</div><div class='img'><img src='wkt_plot-1.png' alt='' width='700' height='433' /></div><div class='input'></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

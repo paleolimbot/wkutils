@@ -73,7 +73,7 @@ minimum and maximum x, y, z, and m coordinate values." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">wkutils</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
 
@@ -87,6 +87,9 @@ minimum and maximum x, y, z, and m coordinate values." />
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
+</li>
+<li>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -119,17 +122,17 @@ minimum and maximum x, y, z, and m coordinate values." />
 minimum and maximum x, y, z, and m coordinate values.</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/wkutils/man/wkb_ranges.html'>wkb_ranges</a></span>(<span class='kw'>wkb</span>, na.rm = <span class='fl'>FALSE</span>, finite = <span class='fl'>FALSE</span>)
+    <pre class="usage"><span class='fu'>wkb_ranges</span>(<span class='kw'>wkb</span>, na.rm = <span class='fl'>FALSE</span>, finite = <span class='fl'>FALSE</span>)
 
-<span class='fu'><a href='https://rdrr.io/pkg/wkutils/man/wkb_ranges.html'>wkt_ranges</a></span>(<span class='kw'>wkt</span>, na.rm = <span class='fl'>FALSE</span>, finite = <span class='fl'>FALSE</span>)
+<span class='fu'>wkt_ranges</span>(<span class='kw'>wkt</span>, na.rm = <span class='fl'>FALSE</span>, finite = <span class='fl'>FALSE</span>)
 
-<span class='fu'><a href='https://rdrr.io/pkg/wkutils/man/wkb_ranges.html'>wksxp_ranges</a></span>(<span class='kw'>wksxp</span>, na.rm = <span class='fl'>FALSE</span>, finite = <span class='fl'>FALSE</span>)
+<span class='fu'>wksxp_ranges</span>(<span class='kw'>wksxp</span>, na.rm = <span class='fl'>FALSE</span>, finite = <span class='fl'>FALSE</span>)
 
-<span class='fu'><a href='https://rdrr.io/pkg/wkutils/man/wkb_ranges.html'>wkb_feature_ranges</a></span>(<span class='kw'>wkb</span>, na.rm = <span class='fl'>FALSE</span>, finite = <span class='fl'>FALSE</span>)
+<span class='fu'>wkb_feature_ranges</span>(<span class='kw'>wkb</span>, na.rm = <span class='fl'>FALSE</span>, finite = <span class='fl'>FALSE</span>)
 
-<span class='fu'><a href='https://rdrr.io/pkg/wkutils/man/wkb_ranges.html'>wkt_feature_ranges</a></span>(<span class='kw'>wkt</span>, na.rm = <span class='fl'>FALSE</span>, finite = <span class='fl'>FALSE</span>)
+<span class='fu'>wkt_feature_ranges</span>(<span class='kw'>wkt</span>, na.rm = <span class='fl'>FALSE</span>, finite = <span class='fl'>FALSE</span>)
 
-<span class='fu'><a href='https://rdrr.io/pkg/wkutils/man/wkb_ranges.html'>wksxp_feature_ranges</a></span>(<span class='kw'>wksxp</span>, na.rm = <span class='fl'>FALSE</span>, finite = <span class='fl'>FALSE</span>)</pre>
+<span class='fu'>wksxp_feature_ranges</span>(<span class='kw'>wksxp</span>, na.rm = <span class='fl'>FALSE</span>, finite = <span class='fl'>FALSE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -167,7 +170,7 @@ returned by <code>sf::st_as_binary()</code>.</p></td>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/wkutils/man/wkb_ranges.html'>wkt_ranges</a></span>(<span class='st'>"POINT (30 10)"</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 1 x 8</span><span>
+    <pre class="examples"><div class='input'><span class='fu'>wkt_ranges</span>(<span class='st'>"POINT (30 10)"</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 1 x 8</span><span>
 #&gt;    xmin  ymin  zmin  mmin  xmax  ymax  zmax  mmax
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
 #&gt; </span><span style='color: #555555;'>1</span><span>    30    10   </span><span style='color: #BB0000;'>Inf</span><span>   </span><span style='color: #BB0000;'>Inf</span><span>    30    10  -</span><span style='color: #BB0000;'>Inf</span><span>  -</span><span style='color: #BB0000;'>Inf</span><span></div><div class='input'></div></span></pre>
