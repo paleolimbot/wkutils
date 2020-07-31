@@ -24,8 +24,9 @@
 wkt_plot <- function(x, ...,
                      asp = 1, bbox = NULL, xlab = "", ylab = "",
                      rule = "evenodd", add = FALSE) {
+  attributes(x) <- NULL
   plot_wk(
-    x, wkt_ranges, wkt_meta, wkt_coords,
+    new_wk_wkt(x), wkt_ranges, wkt_meta, wkt_coords,
     ...,
     asp = asp, bbox = bbox, xlab = xlab,
     rule = rule, add = add
@@ -37,8 +38,9 @@ wkt_plot <- function(x, ...,
 wkb_plot <- function(x, ...,
                      asp = 1, bbox = NULL, xlab = "", ylab = "",
                      rule = "evenodd", add = FALSE) {
+  attributes(x) <- NULL
   plot_wk(
-    x, wkb_ranges, wkb_meta, wkb_coords,
+    new_wk_wkb(x), wkb_ranges, wkb_meta, wkb_coords,
     ...,
     asp = asp, bbox = bbox, xlab = xlab,
     rule = rule, add = add
@@ -50,8 +52,9 @@ wkb_plot <- function(x, ...,
 wksxp_plot <- function(x, ...,
                        asp = 1, bbox = NULL, xlab = "", ylab = "",
                        rule = "evenodd", add = FALSE) {
+  attributes(x) <- NULL
   plot_wk(
-    x, wksxp_ranges, wksxp_meta, wksxp_coords,
+    new_wk_wksxp(x), wksxp_ranges, wksxp_meta, wksxp_coords,
     ...,
     asp = asp, bbox = bbox, xlab = xlab,
     rule = rule, add = add
@@ -91,7 +94,7 @@ plot_add_wk <- function(x, meta_fun, coords_fun, ..., rule = "evenodd") {
 
   # using for() because the user interrupt is respected in RStudio
   for (i in seq_along(x)) {
-    coords <- coords_fun(x[[i]], sep_na = TRUE)[c("x", "y")]
+    coords <- coords_fun(x[i], sep_na = TRUE)[c("x", "y")]
     if (nrow(coords) == 0) {
       next
     }
