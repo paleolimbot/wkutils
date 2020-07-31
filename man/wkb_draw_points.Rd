@@ -62,7 +62,7 @@ wksxp_plot_new(
 }
 \arguments{
 \item{wkb}{A \code{list()} of \code{\link[=raw]{raw()}} vectors, such as that
-returned by \code{\link[sf:st_as_binary]{sf::st_as_binary()}}.}
+returned by \code{sf::st_as_binary()}.}
 
 \item{...}{Passed to \code{\link[graphics:points]{graphics::points()}},
 \code{\link[graphics:lines]{graphics::lines()}}, or \code{\link[graphics:polypath]{graphics::polypath()}}}

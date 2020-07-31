@@ -23,7 +23,7 @@ wk_geometry_type_id(type)
 }
 \arguments{
 \item{wkb}{A \code{list()} of \code{\link[=raw]{raw()}} vectors, such as that
-returned by \code{\link[sf:st_as_binary]{sf::st_as_binary()}}.}
+returned by \code{sf::st_as_binary()}.}
 
 \item{recursive}{Pass \code{TRUE} to recurse into multi-geometries
 and collections to extract meta of sub-geometries}

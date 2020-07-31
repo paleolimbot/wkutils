@@ -23,7 +23,7 @@ rather than collapsing to length 0.}
 \item{max_depth}{The maximum recursive GEOMETRYCOLLECTION depth to unnest.}
 
 \item{wkb}{A \code{list()} of \code{\link[=raw]{raw()}} vectors, such as that
-returned by \code{\link[sf:st_as_binary]{sf::st_as_binary()}}.}
+returned by \code{sf::st_as_binary()}.}
 
 \item{wksxp}{A \code{list()} of classed objects}
 }

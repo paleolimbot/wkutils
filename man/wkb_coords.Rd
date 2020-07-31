@@ -14,7 +14,7 @@ wksxp_coords(wksxp, sep_na = FALSE)
 }
 \arguments{
 \item{wkb}{A \code{list()} of \code{\link[=raw]{raw()}} vectors, such as that
-returned by \code{\link[sf:st_as_binary]{sf::st_as_binary()}}.}
+returned by \code{sf::st_as_binary()}.}
 
 \item{sep_na}{Use \code{TRUE} to separate geometries and linear
 rings with a row of \code{NA}s. This is useful for generating
