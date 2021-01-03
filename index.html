@@ -109,16 +109,16 @@
 <span class="fu"><a href="reference/wkt_set_srid.html">wkt_set_z</a></span><span class="op">(</span><span class="st">"POINT (30 10)"</span>, <span class="fl">1234</span><span class="op">)</span>
 <span class="co">#&gt; [1] "POINT Z (30 10 1234)"</span>
 <span class="fu"><a href="reference/wkb_meta.html">wkt_meta</a></span><span class="op">(</span><span class="st">"POINT (30 10)"</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 1 x 8</span>
-<span class="co">#&gt;   feature_id part_id type_id  size  srid has_z has_m n_coords</span>
-<span class="co">#&gt;        &lt;int&gt;   &lt;int&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;lgl&gt; &lt;lgl&gt;    &lt;int&gt;</span>
-<span class="co">#&gt; 1          1       1       1     1    NA FALSE FALSE        1</span>
+<span class="co">#&gt; # A tibble: 1 x 7</span>
+<span class="co">#&gt;   feature_id part_id type_id  size  srid has_z has_m</span>
+<span class="co">#&gt;        &lt;int&gt;   &lt;int&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;lgl&gt; &lt;lgl&gt;</span>
+<span class="co">#&gt; 1          1       1       1     1    NA FALSE FALSE</span>
 <span class="fu"><a href="reference/wkb_ranges.html">wkt_ranges</a></span><span class="op">(</span><span class="st">"POINT (30 10)"</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 1 x 8</span>
 <span class="co">#&gt;    xmin  ymin  zmin  mmin  xmax  ymax  zmax  mmax</span>
 <span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span>
 <span class="co">#&gt; 1    30    10   Inf   Inf    30    10  -Inf  -Inf</span></code></pre></div>
-<p>The package also contains plot methods for <code><a href="https://paleolimbot.github.io/wk/reference/wkb.html">wk::wkb()</a></code>, <code><a href="https://paleolimbot.github.io/wk/reference/wkt.html">wk::wkt()</a></code>, and <code><a href="https://paleolimbot.github.io/wk/reference/wksxp.html">wk::wksxp()</a></code> vectors. These aren’t intended to be high-performance, but are helpful for debugging geometries.</p>
+<p>The package also contains plot methods for <code><a href="https://paleolimbot.github.io/wk/reference/wkb.html">wk::wkb()</a></code> and <code><a href="https://paleolimbot.github.io/wk/reference/wkt.html">wk::wkt()</a></code> vectors. These aren’t intended to be high-performance, but are helpful for debugging geometries.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu">wk</span><span class="fu">::</span><span class="fu"><a href="https://paleolimbot.github.io/wk/reference/wkt.html">wkt</a></span><span class="op">(</span><span class="st">"LINESTRING (1 2, 4 7)"</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu">wk</span><span class="fu">::</span><span class="fu"><a href="https://paleolimbot.github.io/wk/reference/wkt.html">wkt</a></span><span class="op">(</span><span class="st">"POINT (3 4)"</span><span class="op">)</span>, add <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></code></pre></div>
