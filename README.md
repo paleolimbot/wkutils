@@ -52,10 +52,10 @@ wkt_set_srid("POINT (30 10)", 1234)
 wkt_set_z("POINT (30 10)", 1234)
 #> [1] "POINT Z (30 10 1234)"
 wkt_meta("POINT (30 10)")
-#> # A tibble: 1 x 8
-#>   feature_id part_id type_id  size  srid has_z has_m n_coords
-#>        <int>   <int>   <int> <int> <int> <lgl> <lgl>    <int>
-#> 1          1       1       1     1    NA FALSE FALSE        1
+#> # A tibble: 1 x 7
+#>   feature_id part_id type_id  size  srid has_z has_m
+#>        <int>   <int>   <int> <int> <int> <lgl> <lgl>
+#> 1          1       1       1     1    NA FALSE FALSE
 wkt_ranges("POINT (30 10)")
 #> # A tibble: 1 x 8
 #>    xmin  ymin  zmin  mmin  xmax  ymax  zmax  mmax
@@ -63,9 +63,9 @@ wkt_ranges("POINT (30 10)")
 #> 1    30    10   Inf   Inf    30    10  -Inf  -Inf
 ```
 
-The package also contains plot methods for `wk::wkb()`, `wk::wkt()`, and
-`wk::wksxp()` vectors. These aren’t intended to be high-performance, but
-are helpful for debugging geometries.
+The package also contains plot methods for `wk::wkb()` and `wk::wkt()`
+vectors. These aren’t intended to be high-performance, but are helpful
+for debugging geometries.
 
 ``` r
 plot(wk::wkt("LINESTRING (1 2, 4 7)"))

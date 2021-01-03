@@ -52,7 +52,7 @@ wkt_meta("POINT (30 10)")
 wkt_ranges("POINT (30 10)")
 ```
 
-The package also contains plot methods for `wk::wkb()`, `wk::wkt()`, and `wk::wksxp()` vectors. These aren't intended to be high-performance, but are helpful for debugging geometries.
+The package also contains plot methods for `wk::wkb()` and `wk::wkt()` vectors. These aren't intended to be high-performance, but are helpful for debugging geometries.
 
 ```{r wkt-plot}
 plot(wk::wkt("LINESTRING (1 2, 4 7)"))

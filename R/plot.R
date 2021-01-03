@@ -4,7 +4,7 @@
 #' These plot functions are intended to help debug geometry vectors,
 #' and are not intended to be high-performance.
 #'
-#' @param x A [wkt()], [wkb()], or [wksxp()] vector.
+#' @param x A [wkt()] or [wkb()] vector.
 #' @param add Should a new plot be created, or should `x` be added to the
 #'   existing plot?
 #' @param ... Passed to plotting functions for features: [graphics::points()]
