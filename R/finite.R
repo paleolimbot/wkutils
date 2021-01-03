@@ -30,12 +30,6 @@ wkb_has_missing <- function(wkb) {
 
 #' @rdname wkt_has_missing
 #' @export
-wksxp_has_missing <- function(wksxp) {
-  cpp_wksxp_has_missing(wksxp)
-}
-
-#' @rdname wkt_has_missing
-#' @export
 wkt_is_finite <- function(wkt) {
   !cpp_wkt_has_non_finite(wkt)
 }
@@ -44,10 +38,4 @@ wkt_is_finite <- function(wkt) {
 #' @export
 wkb_is_finite <- function(wkb) {
   !cpp_wkb_has_non_finite(wkb)
-}
-
-#' @rdname wkt_has_missing
-#' @export
-wksxp_is_finite <- function(wksxp) {
-  !cpp_wksxp_has_non_finite(wksxp)
 }

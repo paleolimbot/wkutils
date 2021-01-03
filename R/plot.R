@@ -70,6 +70,7 @@ plot_wk <- function(x, ranges_fun, meta_fun, coords_fun, unnest_fun, ...,
 
 plot_add_wk <- function(x, meta_fun, coords_fun, unnest_fun, ..., rule = "evenodd") {
   # evaluate dots, wrap scalar types in a list(), and vectorize
+  x <- unclass(x)
   dots <- list(..., rule = rule)
   is_scalar <- !vapply(dots, vctrs::vec_is, logical(1))
   dots[is_scalar] <- lapply(dots[is_scalar], list)
@@ -78,7 +79,7 @@ plot_add_wk <- function(x, meta_fun, coords_fun, unnest_fun, ..., rule = "evenod
 
   # using for() because the user interrupt is respected in RStudio
   for (i in seq_along(x)) {
-    coords <- coords_fun(x[[i]], sep_na = TRUE)[c("x", "y")]
+    coords <- coords_fun(x[i], sep_na = TRUE)[c("x", "y")]
     if (nrow(coords) == 0) {
       next
     }
@@ -97,7 +98,6 @@ plot_add_wk <- function(x, meta_fun, coords_fun, unnest_fun, ..., rule = "evenod
       do.call(graphics::polypath, args)
     } else if (type_id == 7) {
       unnested <- unnest_fun(x[i])
-      class(unnested) <- class(x)
       do.call(
         plot_add_wk,
         c(

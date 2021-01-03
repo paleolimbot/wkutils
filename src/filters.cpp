@@ -17,7 +17,7 @@ using namespace Rcpp;
 class  WKSetSridFilter: public WKMetaFilter {
 public:
   WKSetSridFilter(WKGeometryHandler& handler, IntegerVector srid):
-    WKMetaFilter(handler), srid(srid), featureSrid(NA_REAL) {}
+    WKMetaFilter(handler), srid(srid), featureSrid(NA_INTEGER) {}
 
   void nextFeatureStart(size_t featureId) {
     this->featureSrid = this->srid[featureId];
