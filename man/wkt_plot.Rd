@@ -3,7 +3,6 @@
 \name{wkt_plot}
 \alias{wkt_plot}
 \alias{wkb_plot}
-\alias{wksxp_plot}
 \title{Plot well-known geometry vectors}
 \usage{
 wkt_plot(
@@ -27,17 +26,6 @@ wkb_plot(
   rule = "evenodd",
   add = FALSE
 )
-
-wksxp_plot(
-  x,
-  ...,
-  asp = 1,
-  bbox = NULL,
-  xlab = "",
-  ylab = "",
-  rule = "evenodd",
-  add = FALSE
-)
 }
 \arguments{
 \item{x}{A \code{\link[=wkt]{wkt()}}, \code{\link[=wkb]{wkb()}}, or \code{\link[=wksxp]{wksxp()}} vector.}
@@ -49,7 +37,7 @@ and multipolygon geometries.}
 
 \item{asp, xlab, ylab}{Passed to \code{\link[graphics:plot.default]{graphics::plot()}}}
 
-\item{bbox}{The limits of the plot in the form returned by \code{\link[=wksxp_ranges]{wksxp_ranges()}}.}
+\item{bbox}{The limits of the plot in the form returned by \code{\link[=wkt_ranges]{wkt_ranges()}}.}
 
 \item{rule}{The rule to use for filling polygons (see \code{\link[graphics:polypath]{graphics::polypath()}})}
 

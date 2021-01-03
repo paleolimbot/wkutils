@@ -42,13 +42,6 @@ wkt_draw_points <- function(wkt, ...) {
 
 #' @rdname wkb_draw_points
 #' @export
-wksxp_draw_points <- function(wksxp, ...) {
-  wkcoords_draw_points(wksxp_coords(wksxp), ...)
-  invisible(wksxp)
-}
-
-#' @rdname wkb_draw_points
-#' @export
 wkb_draw_lines <- function(wkb, ...) {
   wkcoords_draw_lines(wkb_coords(wkb, sep_na = TRUE), ...)
   invisible(wkb)
@@ -59,13 +52,6 @@ wkb_draw_lines <- function(wkb, ...) {
 wkt_draw_lines <- function(wkt, ...) {
   wkcoords_draw_lines(wkt_coords(wkt, sep_na = TRUE), ...)
   invisible(wkt)
-}
-
-#' @rdname wkb_draw_points
-#' @export
-wksxp_draw_lines <- function(wksxp, ...) {
-  wkcoords_draw_lines(wksxp_coords(wksxp, sep_na = TRUE), ...)
-  invisible(wksxp)
 }
 
 #' @rdname wkb_draw_points
@@ -84,13 +70,6 @@ wkt_draw_polypath <- function(wkt, ..., rule = "evenodd") {
 
 #' @rdname wkb_draw_points
 #' @export
-wksxp_draw_polypath <- function(wksxp, ..., rule = "evenodd") {
-  wkcoords_draw_polypath(wksxp_coords(wksxp, sep_na = TRUE), ..., rule = rule)
-  invisible(wksxp)
-}
-
-#' @rdname wkb_draw_points
-#' @export
 wkb_plot_new <- function(wkb, ..., asp = 1, xlab = "", ylab = "", main = deparse(substitute(wkb))) {
   wkranges_plot_new(wkb_ranges(wkb, finite = TRUE), ..., asp = asp, xlab = xlab, ylab = ylab, main = main)
   invisible(wkb)
@@ -101,13 +80,6 @@ wkb_plot_new <- function(wkb, ..., asp = 1, xlab = "", ylab = "", main = deparse
 wkt_plot_new <- function(wkt, ..., asp = 1, xlab = "", ylab = "", main = deparse(substitute(wkt))) {
   wkranges_plot_new(wkt_ranges(wkt, finite = TRUE), ..., asp = asp, xlab = xlab, ylab = ylab, main = main)
   invisible(wkt)
-}
-
-#' @rdname wkb_draw_points
-#' @export
-wksxp_plot_new <- function(wksxp, ..., asp = 1, xlab = "", ylab = "", main = deparse(substitute(wksxp))) {
-  wkranges_plot_new(wksxp_ranges(wksxp, finite = TRUE), ..., asp = asp, xlab = xlab, ylab = ylab, main = main)
-  invisible(wksxp)
 }
 
 wkcoords_draw_points <- function(coords, ...) {

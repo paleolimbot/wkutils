@@ -3,14 +3,11 @@
 \name{wkt_unnest}
 \alias{wkt_unnest}
 \alias{wkb_unnest}
-\alias{wksxp_unnest}
 \title{Flatten nested geometry structures}
 \usage{
 wkt_unnest(wkt, keep_empty = FALSE, keep_multi = TRUE, max_depth = 1)
 
 wkb_unnest(wkb, keep_empty = FALSE, keep_multi = TRUE, max_depth = 1)
-
-wksxp_unnest(wksxp, keep_empty = FALSE, keep_multi = TRUE, max_depth = 1)
 }
 \arguments{
 \item{wkt}{A character vector containing well-known text.}
@@ -23,9 +20,7 @@ rather than collapsing to length 0.}
 \item{max_depth}{The maximum recursive GEOMETRYCOLLECTION depth to unnest.}
 
 \item{wkb}{A \code{list()} of \code{\link[=raw]{raw()}} vectors, such as that
-returned by \code{\link[sf:st_as_binary]{sf::st_as_binary()}}.}
-
-\item{wksxp}{A \code{list()} of classed objects}
+returned by \code{sf::st_as_binary()}.}
 }
 \value{
 An unclassed vector with attribute \code{lengths}, which is an integer vector

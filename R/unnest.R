@@ -26,9 +26,3 @@ wkt_unnest <- function(wkt, keep_empty = FALSE, keep_multi = TRUE, max_depth = 1
 wkb_unnest <- function(wkb, keep_empty = FALSE, keep_multi = TRUE, max_depth = 1) {
   cpp_wkb_unnest(wkb, keep_empty, keep_multi, max_depth, endian = wk_platform_endian())
 }
-
-#' @rdname wkt_unnest
-#' @export
-wksxp_unnest <- function(wksxp, keep_empty = FALSE, keep_multi = TRUE, max_depth = 1) {
-  cpp_wksxp_unnest(wksxp, keep_empty, keep_multi, max_depth)
-}

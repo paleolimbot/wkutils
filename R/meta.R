@@ -44,12 +44,6 @@ wkt_streamer_meta <- function(wkt, recursive = FALSE) {
 
 #' @rdname wkb_meta
 #' @export
-wksxp_meta <- function(wksxp, recursive = FALSE) {
-  new_data_frame(cpp_meta_wksxp(wksxp, recursive = recursive))
-}
-
-#' @rdname wkb_meta
-#' @export
 wk_geometry_type <- function(type_id) {
   c(
     "point", "linestring", "polygon",

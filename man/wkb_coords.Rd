@@ -3,18 +3,15 @@
 \name{wkb_coords}
 \alias{wkb_coords}
 \alias{wkt_coords}
-\alias{wksxp_coords}
 \title{Extract coordinates from well-known geometries}
 \usage{
 wkb_coords(wkb, sep_na = FALSE)
 
 wkt_coords(wkt, sep_na = FALSE)
-
-wksxp_coords(wksxp, sep_na = FALSE)
 }
 \arguments{
 \item{wkb}{A \code{list()} of \code{\link[=raw]{raw()}} vectors, such as that
-returned by \code{\link[sf:st_as_binary]{sf::st_as_binary()}}.}
+returned by \code{sf::st_as_binary()}.}
 
 \item{sep_na}{Use \code{TRUE} to separate geometries and linear
 rings with a row of \code{NA}s. This is useful for generating
@@ -22,8 +19,6 @@ output that can be fed directly to \code{\link[graphics:polypath]{graphics::poly
 or \code{\link[graphics:lines]{graphics::lines()}} without modification.}
 
 \item{wkt}{A character vector containing well-known text.}
-
-\item{wksxp}{A \code{list()} of classed objects}
 }
 \value{
 A data.frame with columns:

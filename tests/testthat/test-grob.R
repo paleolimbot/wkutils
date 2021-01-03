@@ -108,14 +108,3 @@ test_that("wkb_grob() works", {
   expect_equal(grob_points$pch, c(1, 16))
   expect_equal(grob_points$gp$col, c("black", "red"))
 })
-
-test_that("wksxp_grob() works", {
-  grob_points <- wksxp_grob(
-    as_wksxp(c("POINT (0.1 0.1)", "POINT (0.9 0.9)")),
-    pch = c(1, 16), col = c("black", "red"),
-    default.units = "npc"
-  )
-  expect_is(grob_points, "points")
-  expect_equal(grob_points$pch, c(1, 16))
-  expect_equal(grob_points$gp$col, c("black", "red"))
-})

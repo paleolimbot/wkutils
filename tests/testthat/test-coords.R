@@ -16,23 +16,6 @@ test_that("wkb_coords() works", {
   )
 })
 
-test_that("wksxp_coords() works", {
-  # point
-  sxp <- wkt_translate_wksxp("POINT (30 10)")
-  expect_identical(
-    wksxp_coords(sxp),
-    tibble::tibble(
-      feature_id = 1L,
-      part_id = 1L,
-      ring_id = 0L,
-      x = 30,
-      y = 10,
-      z = NA_real_,
-      m = NA_real_
-    )
-  )
-})
-
 test_that("wkt_coords() works", {
   # point
   expect_identical(

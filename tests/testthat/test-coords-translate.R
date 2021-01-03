@@ -116,28 +116,3 @@ test_that("coords_*_translate_wkb() works", {
     )
   )
 })
-
-test_that("coords_*_translate_wksxp() works", {
-  expect_identical(
-    coords_point_translate_wksxp(1:3, 2:4),
-    wkt_translate_wksxp(c("POINT (1 2)", "POINT (2 3)", "POINT (3 4)"))
-  )
-  expect_identical(
-    coords_linestring_translate_wksxp(1:5, 2:6, feature_id = c(1, 1, 1, 2, 2)),
-    wkt_translate_wksxp(c("LINESTRING (1 2, 2 3, 3 4)", "LINESTRING (4 5, 5 6)"))
-  )
-  expect_identical(
-    coords_polygon_translate_wksxp(
-      c(20, 10, 10, 30, 45, 30, 20, 20, 40, 20, 45),
-      c(35, 30, 10, 5, 20, 20, 15, 25, 40, 45, 30),
-      feature_id = c(rep(1, 8), rep(2, 3)),
-      ring_id = c(1, 1, 1, 1, 1, 2, 2, 2, 1, 1, 1)
-    ),
-    wkt_translate_wksxp(
-      c(
-        "POLYGON ((20 35, 10 30, 10 10, 30 5, 45 20, 20 35), (30 20, 20 15, 20 25, 30 20))",
-        "POLYGON ((40 40, 20 45, 45 30, 40 40))"
-      )
-    )
-  )
-})

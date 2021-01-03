@@ -29,21 +29,6 @@ test_that("wkt_meta() works", {
   )
 })
 
-test_that("wkb_meta() works", {
-  expect_identical(
-    wksxp_meta(wkt_translate_wksxp("POINT (30 10)")),
-    tibble::tibble(
-      feature_id = 1L,
-      part_id = 1L,
-      type_id = 1L,
-      size = 1L,
-      srid = NA_integer_,
-      has_z = FALSE,
-      has_m = FALSE
-    )
-  )
-})
-
 test_that("wkt_streamer_meta() works", {
   # point
   expect_identical(

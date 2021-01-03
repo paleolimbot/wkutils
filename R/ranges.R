@@ -29,12 +29,6 @@ wkt_ranges <- function(wkt, na.rm = FALSE, finite = FALSE) {
 
 #' @rdname wkb_ranges
 #' @export
-wksxp_ranges <- function(wksxp, na.rm = FALSE, finite = FALSE) {
-  new_data_frame(cpp_ranges_wksxp(wksxp, naRm = na.rm, onlyFinite = finite))
-}
-
-#' @rdname wkb_ranges
-#' @export
 wkb_feature_ranges <- function(wkb, na.rm = FALSE, finite = FALSE) {
   new_data_frame(cpp_feature_ranges_wkb(wkb, naRm = na.rm, onlyFinite = finite))
 }
@@ -43,10 +37,4 @@ wkb_feature_ranges <- function(wkb, na.rm = FALSE, finite = FALSE) {
 #' @export
 wkt_feature_ranges <- function(wkt, na.rm = FALSE, finite = FALSE) {
   new_data_frame(cpp_feature_ranges_wkt(wkt, naRm = na.rm, onlyFinite = finite))
-}
-
-#' @rdname wkb_ranges
-#' @export
-wksxp_feature_ranges <- function(wksxp, na.rm = FALSE, finite = FALSE) {
-  new_data_frame(cpp_feature_ranges_wksxp(wksxp, naRm = na.rm, onlyFinite = finite))
 }

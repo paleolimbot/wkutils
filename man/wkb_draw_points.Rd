@@ -3,35 +3,25 @@
 \name{wkb_draw_points}
 \alias{wkb_draw_points}
 \alias{wkt_draw_points}
-\alias{wksxp_draw_points}
 \alias{wkb_draw_lines}
 \alias{wkt_draw_lines}
-\alias{wksxp_draw_lines}
 \alias{wkb_draw_polypath}
 \alias{wkt_draw_polypath}
-\alias{wksxp_draw_polypath}
 \alias{wkb_plot_new}
 \alias{wkt_plot_new}
-\alias{wksxp_plot_new}
 \title{Draw well-known geometries}
 \usage{
 wkb_draw_points(wkb, ...)
 
 wkt_draw_points(wkt, ...)
 
-wksxp_draw_points(wksxp, ...)
-
 wkb_draw_lines(wkb, ...)
 
 wkt_draw_lines(wkt, ...)
 
-wksxp_draw_lines(wksxp, ...)
-
 wkb_draw_polypath(wkb, ..., rule = "evenodd")
 
 wkt_draw_polypath(wkt, ..., rule = "evenodd")
-
-wksxp_draw_polypath(wksxp, ..., rule = "evenodd")
 
 wkb_plot_new(
   wkb,
@@ -50,26 +40,15 @@ wkt_plot_new(
   ylab = "",
   main = deparse(substitute(wkt))
 )
-
-wksxp_plot_new(
-  wksxp,
-  ...,
-  asp = 1,
-  xlab = "",
-  ylab = "",
-  main = deparse(substitute(wksxp))
-)
 }
 \arguments{
 \item{wkb}{A \code{list()} of \code{\link[=raw]{raw()}} vectors, such as that
-returned by \code{\link[sf:st_as_binary]{sf::st_as_binary()}}.}
+returned by \code{sf::st_as_binary()}.}
 
 \item{...}{Passed to \code{\link[graphics:points]{graphics::points()}},
 \code{\link[graphics:lines]{graphics::lines()}}, or \code{\link[graphics:polypath]{graphics::polypath()}}}
 
 \item{wkt}{A character vector containing well-known text.}
-
-\item{wksxp}{A \code{list()} of classed objects}
 
 \item{rule}{Passed to \code{\link[graphics:polypath]{graphics::polypath()}}}
 

@@ -55,22 +55,6 @@ wkb_grob <- function(wkt, ..., rule = "evenodd", default.units = "native", name 
   )
 }
 
-#' @rdname wkt_grob
-#' @export
-wksxp_grob <- function(wkt, ..., rule = "evenodd", default.units = "native", name = NULL, vp = NULL) {
-  grob_wk_possibly_nested(
-    wkt,
-    ...,
-    unnest_fun = wksxp_unnest,
-    meta_fun = wksxp_meta,
-    coords_fun = wksxp_coords,
-    rule = rule,
-    default.units = default.units,
-    name = name,
-    vp = vp
-  )
-}
-
 grob_wk_possibly_nested <- function(x, ..., unnest_fun, meta_fun, coords_fun,
                                     rule, default.units, name, vp) {
   meta <- meta_fun(x)

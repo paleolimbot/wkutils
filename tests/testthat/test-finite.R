@@ -26,17 +26,3 @@ test_that("wkb_has_missing() / wkb_is_finite() works", {
   expect_false(wkb_is_finite(as_wkb("POINT (nan nan)")))
   expect_false(wkb_is_finite(as_wkb("POINT (inf inf)")))
 })
-
-test_that("wksxp_has_missing() / wksxp_is_finite() works", {
-  expect_identical(wksxp_has_missing(list()), logical(0))
-  expect_false(wksxp_has_missing(as_wksxp("POINT EMPTY")))
-  expect_false(wksxp_has_missing(as_wksxp("POINT (0 1)")))
-  expect_true(wksxp_has_missing(as_wksxp("POINT (nan nan)")))
-  expect_false(wksxp_has_missing(as_wksxp("POINT (inf inf)")))
-
-  expect_identical(wksxp_is_finite(list()), logical(0))
-  expect_true(wksxp_is_finite(as_wksxp("POINT EMPTY")))
-  expect_true(wksxp_is_finite(as_wksxp("POINT (0 1)")))
-  expect_false(wksxp_is_finite(as_wksxp("POINT (nan nan)")))
-  expect_false(wksxp_is_finite(as_wksxp("POINT (inf inf)")))
-})

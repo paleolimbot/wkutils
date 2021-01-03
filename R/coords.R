@@ -39,9 +39,3 @@ wkb_coords <- function(wkb, sep_na = FALSE) {
 wkt_coords <- function(wkt, sep_na = FALSE) {
   new_data_frame(cpp_coords_wkt(wkt, sep_na))
 }
-
-#' @rdname wkb_coords
-#' @export
-wksxp_coords <- function(wksxp, sep_na = FALSE) {
-  new_data_frame(cpp_coords_wksxp(wksxp, sep_na))
-}

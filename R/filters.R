@@ -36,13 +36,6 @@ wkb_set_srid <- function(wkb, srid) {
 
 #' @rdname wkt_set_srid
 #' @export
-wksxp_set_srid <- function(wksxp, srid) {
-  recycled <- vctrs::vec_recycle_common(wksxp, srid)
-  cpp_wksxp_set_srid(recycled[[1]], recycled[[2]])
-}
-
-#' @rdname wkt_set_srid
-#' @export
 wkt_set_z <- function(wkt, z, precision = 16, trim = TRUE)  {
   recycled <- vctrs::vec_recycle_common(wkt, z)
   cpp_wkt_set_z(recycled[[1]], recycled[[2]], precision, trim)
@@ -57,13 +50,6 @@ wkb_set_z <- function(wkb, z) {
 
 #' @rdname wkt_set_srid
 #' @export
-wksxp_set_z <- function(wksxp, z) {
-  recycled <- vctrs::vec_recycle_common(wksxp, z)
-  cpp_wksxp_set_z(recycled[[1]], recycled[[2]])
-}
-
-#' @rdname wkt_set_srid
-#' @export
 wkt_transform <- function(wkt, trans, precision = 16, trim = TRUE)  {
   cpp_wkt_transform(wkt, as_trans_matrix(trans)[c(1, 2), ], precision, trim)
 }
@@ -72,12 +58,6 @@ wkt_transform <- function(wkt, trans, precision = 16, trim = TRUE)  {
 #' @export
 wkb_transform <- function(wkb, trans)  {
   cpp_wkb_transform(wkb, as_trans_matrix(trans)[c(1, 2), ], endian = wk_platform_endian())
-}
-
-#' @rdname wkt_set_srid
-#' @export
-wksxp_transform <- function(wksxp, trans)  {
-  cpp_wksxp_transform(wksxp, as_trans_matrix(trans)[c(1, 2), ])
 }
 
 as_trans_matrix <- function(trans) {

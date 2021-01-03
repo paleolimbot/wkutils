@@ -4,7 +4,6 @@
 \alias{wkb_meta}
 \alias{wkt_meta}
 \alias{wkt_streamer_meta}
-\alias{wksxp_meta}
 \alias{wk_geometry_type}
 \alias{wk_geometry_type_id}
 \title{Extract meta information}
@@ -15,22 +14,18 @@ wkt_meta(wkt, recursive = FALSE)
 
 wkt_streamer_meta(wkt, recursive = FALSE)
 
-wksxp_meta(wksxp, recursive = FALSE)
-
 wk_geometry_type(type_id)
 
 wk_geometry_type_id(type)
 }
 \arguments{
 \item{wkb}{A \code{list()} of \code{\link[=raw]{raw()}} vectors, such as that
-returned by \code{\link[sf:st_as_binary]{sf::st_as_binary()}}.}
+returned by \code{sf::st_as_binary()}.}
 
 \item{recursive}{Pass \code{TRUE} to recurse into multi-geometries
 and collections to extract meta of sub-geometries}
 
 \item{wkt}{A character vector containing well-known text.}
-
-\item{wksxp}{A \code{list()} of classed objects}
 
 \item{type_id}{An integer version of the geometry type}
 

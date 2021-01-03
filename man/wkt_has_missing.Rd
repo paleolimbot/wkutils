@@ -25,7 +25,7 @@ wksxp_is_finite(wksxp)
 \item{wkt}{A character vector containing well-known text.}
 
 \item{wkb}{A \code{list()} of \code{\link[=raw]{raw()}} vectors, such as that
-returned by \code{\link[sf:st_as_binary]{sf::st_as_binary()}}.}
+returned by \code{sf::st_as_binary()}.}
 
 \item{wksxp}{A \code{list()} of classed objects}
 }

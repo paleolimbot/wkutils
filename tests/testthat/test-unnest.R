@@ -63,28 +63,6 @@ test_that("wk*_unnest() works", {
       lengths = 3L
     )
   )
-
-  expect_identical(
-    wksxp_unnest(
-      as_wksxp("GEOMETRYCOLLECTION(MULTIPOINT (30 10, 10 10), LINESTRING (0 0, 1 1), GEOMETRYCOLLECTION EMPTY)"),
-      keep_multi = TRUE, max_depth = 2, keep_empty = TRUE
-    ),
-    structure(
-      wkt_translate_wksxp(c("MULTIPOINT ((30 10), (10 10))", "LINESTRING (0 0, 1 1)", "GEOMETRYCOLLECTION EMPTY")),
-      lengths = 3L
-    )
-  )
-
-  expect_identical(
-    wksxp_unnest(
-      as_wksxp("GEOMETRYCOLLECTION(MULTIPOINT (30 10, 10 10), LINESTRING (0 0, 1 1), GEOMETRYCOLLECTION EMPTY)"),
-      keep_multi = FALSE, max_depth = 2, keep_empty = FALSE
-    ),
-    structure(
-      wkt_translate_wksxp(c("POINT (30 10)", "POINT (10 10)", "LINESTRING (0 0, 1 1)")),
-      lengths = 3L
-    )
-  )
 })
 
 test_that("wk*_unnest(max_depth) is respected", {

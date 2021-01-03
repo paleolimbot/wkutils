@@ -14,8 +14,7 @@
 #'
 #' @return `*_translate_wkt()` returns a character vector of
 #'   well-known text; `*_translate_wkb()` returns a list
-#'   of raw vectors, and `*_translate_wksxp()` returns an unclassed
-#'   list of [wksxp()] geometries.
+#'   of raw vectors.
 #'
 #' @export
 #'
@@ -48,15 +47,6 @@ coords_point_translate_wkb <- function(x, y, z = NA, m = NA,
 
 #' @rdname coords_point_translate_wkt
 #' @export
-coords_point_translate_wksxp <- function(x, y, z = NA, m = NA) {
-  recycled <- vctrs::vec_recycle_common(x, y, z, m)
-  cpp_coords_point_translate_wksxp(
-    recycled[[1]], recycled[[2]], recycled[[3]], recycled[[4]]
-  )
-}
-
-#' @rdname coords_point_translate_wkt
-#' @export
 coords_linestring_translate_wkt <- function(x, y, z = NA, m = NA, feature_id = 1L,
                                        precision = 16, trim = TRUE) {
   recycled <- vctrs::vec_recycle_common(x, y, z, m, feature_id)
@@ -83,16 +73,6 @@ coords_linestring_translate_wkb <- function(x, y, z = NA, m = NA, feature_id = 1
 
 #' @rdname coords_point_translate_wkt
 #' @export
-coords_linestring_translate_wksxp <- function(x, y, z = NA, m = NA, feature_id = 1L) {
-  recycled <- vctrs::vec_recycle_common(x, y, z, m, feature_id)
-  cpp_coords_linestring_translate_wksxp(
-    recycled[[1]], recycled[[2]], recycled[[3]], recycled[[4]],
-    recycled[[5]]
-  )
-}
-
-#' @rdname coords_point_translate_wkt
-#' @export
 coords_polygon_translate_wkt <- function(x, y, z = NA, m = NA, feature_id = 1L, ring_id = 1L,
                                          precision = 16, trim = TRUE) {
   recycled <- vctrs::vec_recycle_common(x, y, z, m, feature_id, ring_id)
@@ -114,15 +94,5 @@ coords_polygon_translate_wkb <- function(x, y, z = NA, m = NA, feature_id = 1L, 
     recycled[[5]], recycled[[6]],
     endian = endian,
     bufferSize = buffer_size
-  )
-}
-
-#' @rdname coords_point_translate_wkt
-#' @export
-coords_polygon_translate_wksxp <- function(x, y, z = NA, m = NA, feature_id = 1L, ring_id = 1L) {
-  recycled <- vctrs::vec_recycle_common(x, y, z, m, feature_id, ring_id)
-  cpp_coords_polygon_translate_wksxp(
-    recycled[[1]], recycled[[2]], recycled[[3]], recycled[[4]],
-    recycled[[5]], recycled[[6]]
   )
 }

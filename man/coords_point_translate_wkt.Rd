@@ -3,13 +3,10 @@
 \name{coords_point_translate_wkt}
 \alias{coords_point_translate_wkt}
 \alias{coords_point_translate_wkb}
-\alias{coords_point_translate_wksxp}
 \alias{coords_linestring_translate_wkt}
 \alias{coords_linestring_translate_wkb}
-\alias{coords_linestring_translate_wksxp}
 \alias{coords_polygon_translate_wkt}
 \alias{coords_polygon_translate_wkb}
-\alias{coords_polygon_translate_wksxp}
 \title{Parse coordinates into well-known formats}
 \usage{
 coords_point_translate_wkt(x, y, z = NA, m = NA, precision = 16, trim = TRUE)
@@ -22,8 +19,6 @@ coords_point_translate_wkb(
   endian = wk::wk_platform_endian(),
   buffer_size = 2048
 )
-
-coords_point_translate_wksxp(x, y, z = NA, m = NA)
 
 coords_linestring_translate_wkt(
   x,
@@ -45,8 +40,6 @@ coords_linestring_translate_wkb(
   buffer_size = 2048
 )
 
-coords_linestring_translate_wksxp(x, y, z = NA, m = NA, feature_id = 1L)
-
 coords_polygon_translate_wkt(
   x,
   y,
@@ -67,15 +60,6 @@ coords_polygon_translate_wkb(
   ring_id = 1L,
   endian = wk::wk_platform_endian(),
   buffer_size = 2048
-)
-
-coords_polygon_translate_wksxp(
-  x,
-  y,
-  z = NA,
-  m = NA,
-  feature_id = 1L,
-  ring_id = 1L
 )
 }
 \arguments{
@@ -101,8 +85,7 @@ to convert from a character vector.}
 \value{
 \verb{*_translate_wkt()} returns a character vector of
 well-known text; \verb{*_translate_wkb()} returns a list
-of raw vectors, and \verb{*_translate_wksxp()} returns an unclassed
-list of \code{\link[=wksxp]{wksxp()}} geometries.
+of raw vectors.
 }
 \description{
 These functions provide the reverse function of \code{\link[=wkt_coords]{wkt_coords()}}

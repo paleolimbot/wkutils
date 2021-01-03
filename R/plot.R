@@ -11,7 +11,7 @@
 #'   for point and multipoint geometries, [graphics::lines()] for linestring
 #'   and multilinestring geometries, and [graphics::polypath()] for polygon
 #'   and multipolygon geometries.
-#' @param bbox The limits of the plot in the form returned by [wksxp_ranges()].
+#' @param bbox The limits of the plot in the form returned by [wkt_ranges()].
 #' @param asp,xlab,ylab Passed to [graphics::plot()]
 #' @param rule The rule to use for filling polygons (see [graphics::polypath()])
 #'
@@ -25,7 +25,7 @@ wkt_plot <- function(x, ...,
                      asp = 1, bbox = NULL, xlab = "", ylab = "",
                      rule = "evenodd", add = FALSE) {
   plot_wk(
-    x, wkt_ranges, wkt_meta, wkt_coords,
+    x, wkt_ranges, wkt_meta, wkt_coords, wkt_unnest,
     ...,
     asp = asp, bbox = bbox, xlab = xlab,
     rule = rule, add = add
@@ -38,27 +38,14 @@ wkb_plot <- function(x, ...,
                      asp = 1, bbox = NULL, xlab = "", ylab = "",
                      rule = "evenodd", add = FALSE) {
   plot_wk(
-    x, wkb_ranges, wkb_meta, wkb_coords,
+    x, wkb_ranges, wkb_meta, wkb_coords, wkb_unnest,
     ...,
     asp = asp, bbox = bbox, xlab = xlab,
     rule = rule, add = add
   )
 }
 
-#' @rdname wkt_plot
-#' @export
-wksxp_plot <- function(x, ...,
-                       asp = 1, bbox = NULL, xlab = "", ylab = "",
-                       rule = "evenodd", add = FALSE) {
-  plot_wk(
-    x, wksxp_ranges, wksxp_meta, wksxp_coords,
-    ...,
-    asp = asp, bbox = bbox, xlab = xlab,
-    rule = rule, add = add
-  )
-}
-
-plot_wk <- function(x, ranges_fun, meta_fun, coords_fun, ...,
+plot_wk <- function(x, ranges_fun, meta_fun, coords_fun, unnest_fun, ...,
                     asp = 1, bbox = NULL, xlab = "", ylab = "",
                     rule = "evenodd", add = FALSE) {
   if (!add) {
@@ -78,10 +65,10 @@ plot_wk <- function(x, ranges_fun, meta_fun, coords_fun, ...,
     )
   }
 
-  plot_add_wk(x, meta_fun, coords_fun, ..., rule = rule)
+  plot_add_wk(x, meta_fun, coords_fun, unnest_fun, ..., rule = rule)
 }
 
-plot_add_wk <- function(x, meta_fun, coords_fun, ..., rule = "evenodd") {
+plot_add_wk <- function(x, meta_fun, coords_fun, unnest_fun, ..., rule = "evenodd") {
   # evaluate dots, wrap scalar types in a list(), and vectorize
   dots <- list(..., rule = rule)
   is_scalar <- !vapply(dots, vctrs::vec_is, logical(1))
@@ -109,11 +96,12 @@ plot_add_wk <- function(x, meta_fun, coords_fun, ..., rule = "evenodd") {
     } else if (type_id == 3 || type_id == 6) {
       do.call(graphics::polypath, args)
     } else if (type_id == 7) {
-      feature_wksxp <- wksxp(unclass(as_wksxp(x[i]))[[1]])
+      unnested <- unnest_fun(x[i])
+      class(unnested) <- class(x)
       do.call(
         plot_add_wk,
         c(
-          list(feature_wksxp, meta_fun = wksxp_meta, coords_fun = wksxp_coords),
+          list(unnested, meta_fun = meta_fun, coords_fun = coords_fun, unnest_fun = unnest_fun),
           dots_item
         )
       )

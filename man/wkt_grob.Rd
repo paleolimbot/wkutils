@@ -3,7 +3,6 @@
 \name{wkt_grob}
 \alias{wkt_grob}
 \alias{wkb_grob}
-\alias{wksxp_grob}
 \title{Generate grid geometries from well-known geometries}
 \usage{
 wkt_grob(
@@ -16,15 +15,6 @@ wkt_grob(
 )
 
 wkb_grob(
-  wkt,
-  ...,
-  rule = "evenodd",
-  default.units = "native",
-  name = NULL,
-  vp = NULL
-)
-
-wksxp_grob(
   wkt,
   ...,
   rule = "evenodd",
