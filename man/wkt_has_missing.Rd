@@ -3,31 +3,23 @@
 \name{wkt_has_missing}
 \alias{wkt_has_missing}
 \alias{wkb_has_missing}
-\alias{wksxp_has_missing}
 \alias{wkt_is_finite}
 \alias{wkb_is_finite}
-\alias{wksxp_is_finite}
 \title{Test well-known geometries for missing and non-finite coordinates}
 \usage{
 wkt_has_missing(wkt)
 
 wkb_has_missing(wkb)
 
-wksxp_has_missing(wksxp)
-
 wkt_is_finite(wkt)
 
 wkb_is_finite(wkb)
-
-wksxp_is_finite(wksxp)
 }
 \arguments{
 \item{wkt}{A character vector containing well-known text.}
 
 \item{wkb}{A \code{list()} of \code{\link[=raw]{raw()}} vectors, such as that
 returned by \code{sf::st_as_binary()}.}
-
-\item{wksxp}{A \code{list()} of classed objects}
 }
 \value{
 A logical vector with the same length as the input.
