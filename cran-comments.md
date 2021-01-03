@@ -1,6 +1,7 @@
 
 This release fixes the ASAN/UBSAN error appearing on the
-package check page.
+package check page and prepares the package for future
+updates to dependency packages.
 
 ## Test environments
 
