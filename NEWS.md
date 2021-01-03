@@ -1,4 +1,4 @@
-# wkutils (development version)
+# wkutils 0.1.1
 
 * Removed support for `wk::wksxp()` for future compatibility with wk.
 * Fixed error caught by CRAN ASAN/UBSAN checks.
