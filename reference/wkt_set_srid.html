@@ -79,12 +79,6 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
@@ -94,7 +88,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/paleolimbot/wkutils/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -120,23 +114,17 @@
     <p>Modify well-known geometries</p>
     </div>
 
-    <pre class="usage"><span class='fu'>wkt_set_srid</span>(<span class='kw'>wkt</span>, <span class='kw'>srid</span>, precision = <span class='fl'>16</span>, trim = <span class='fl'>TRUE</span>)
+    <pre class="usage"><span class='fu'>wkt_set_srid</span><span class='op'>(</span><span class='va'>wkt</span>, <span class='va'>srid</span>, precision <span class='op'>=</span> <span class='fl'>16</span>, trim <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 
-<span class='fu'>wkb_set_srid</span>(<span class='kw'>wkb</span>, <span class='kw'>srid</span>)
+<span class='fu'>wkb_set_srid</span><span class='op'>(</span><span class='va'>wkb</span>, <span class='va'>srid</span><span class='op'>)</span>
 
-<span class='fu'>wksxp_set_srid</span>(<span class='kw'>wksxp</span>, <span class='kw'>srid</span>)
+<span class='fu'>wkt_set_z</span><span class='op'>(</span><span class='va'>wkt</span>, <span class='va'>z</span>, precision <span class='op'>=</span> <span class='fl'>16</span>, trim <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 
-<span class='fu'>wkt_set_z</span>(<span class='kw'>wkt</span>, <span class='kw'>z</span>, precision = <span class='fl'>16</span>, trim = <span class='fl'>TRUE</span>)
+<span class='fu'>wkb_set_z</span><span class='op'>(</span><span class='va'>wkb</span>, <span class='va'>z</span><span class='op'>)</span>
 
-<span class='fu'>wkb_set_z</span>(<span class='kw'>wkb</span>, <span class='kw'>z</span>)
+<span class='fu'>wkt_transform</span><span class='op'>(</span><span class='va'>wkt</span>, <span class='va'>trans</span>, precision <span class='op'>=</span> <span class='fl'>16</span>, trim <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 
-<span class='fu'>wksxp_set_z</span>(<span class='kw'>wksxp</span>, <span class='kw'>z</span>)
-
-<span class='fu'>wkt_transform</span>(<span class='kw'>wkt</span>, <span class='kw'>trans</span>, precision = <span class='fl'>16</span>, trim = <span class='fl'>TRUE</span>)
-
-<span class='fu'>wkb_transform</span>(<span class='kw'>wkb</span>, <span class='kw'>trans</span>)
-
-<span class='fu'>wksxp_transform</span>(<span class='kw'>wksxp</span>, <span class='kw'>trans</span>)</pre>
+<span class='fu'>wkb_transform</span><span class='op'>(</span><span class='va'>wkb</span>, <span class='va'>trans</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -165,10 +153,6 @@ Use <code>NA</code> to unset this value.</p></td>
 returned by <code>sf::st_as_binary()</code>.</p></td>
     </tr>
     <tr>
-      <th>wksxp</th>
-      <td><p>A <code><a href='https://rdrr.io/r/base/list.html'>list()</a></code> of classed objects</p></td>
-    </tr>
-    <tr>
       <th>z</th>
       <td><p>A Z value that will be assigned to every coordinate in each feature.
 Use <code>NA</code> to unset this value.</p></td>
@@ -186,11 +170,15 @@ in the input.</p></td>
 as the input.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>wkt_set_srid</span>(<span class='st'>"POINT (30 10)"</span>, <span class='fl'>1234</span>)</div><div class='output co'>#&gt; [1] "SRID=1234;POINT (30 10)"</div><div class='input'><span class='fu'>wkt_set_z</span>(<span class='st'>"POINT (30 10)"</span>, <span class='fl'>1234</span>)</div><div class='output co'>#&gt; [1] "POINT Z (30 10 1234)"</div><div class='input'><span class='fu'>wkt_transform</span>(
+    <pre class="examples"><div class='input'><span class='fu'>wkt_set_srid</span><span class='op'>(</span><span class='st'>"POINT (30 10)"</span>, <span class='fl'>1234</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "SRID=1234;POINT (30 10)"</div><div class='input'><span class='fu'>wkt_set_z</span><span class='op'>(</span><span class='st'>"POINT (30 10)"</span>, <span class='fl'>1234</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "POINT Z (30 10 1234)"</div><div class='input'><span class='fu'>wkt_transform</span><span class='op'>(</span>
   <span class='st'>"POINT (0 0)"</span>,
   <span class='co'># translation +12 +13</span>
-  <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>12</span>, <span class='fl'>13</span>, <span class='fl'>1</span>), ncol = <span class='fl'>3</span>)
-)</div><div class='output co'>#&gt; [1] "POINT (12 13)"</div><div class='input'></div></pre>
+  <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>0</span>, <span class='fl'>12</span>, <span class='fl'>13</span>, <span class='fl'>1</span><span class='op'>)</span>, ncol <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span>
+<span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "POINT (12 13)"</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -206,7 +194,7 @@ as the input.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>

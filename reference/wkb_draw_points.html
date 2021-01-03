@@ -86,12 +86,6 @@ extent of all coordinates in the vector." />
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
@@ -101,7 +95,7 @@ extent of all coordinates in the vector." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/paleolimbot/wkutils/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -134,50 +128,35 @@ the <code>wk*_plot_new()</code> functions to initialize a plot using the
 extent of all coordinates in the vector.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>wkb_draw_points</span>(<span class='kw'>wkb</span>, <span class='kw'>...</span>)
+    <pre class="usage"><span class='fu'>wkb_draw_points</span><span class='op'>(</span><span class='va'>wkb</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>wkt_draw_points</span>(<span class='kw'>wkt</span>, <span class='kw'>...</span>)
+<span class='fu'>wkt_draw_points</span><span class='op'>(</span><span class='va'>wkt</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>wksxp_draw_points</span>(<span class='kw'>wksxp</span>, <span class='kw'>...</span>)
+<span class='fu'>wkb_draw_lines</span><span class='op'>(</span><span class='va'>wkb</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>wkb_draw_lines</span>(<span class='kw'>wkb</span>, <span class='kw'>...</span>)
+<span class='fu'>wkt_draw_lines</span><span class='op'>(</span><span class='va'>wkt</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>wkt_draw_lines</span>(<span class='kw'>wkt</span>, <span class='kw'>...</span>)
+<span class='fu'>wkb_draw_polypath</span><span class='op'>(</span><span class='va'>wkb</span>, <span class='va'>...</span>, rule <span class='op'>=</span> <span class='st'>"evenodd"</span><span class='op'>)</span>
 
-<span class='fu'>wksxp_draw_lines</span>(<span class='kw'>wksxp</span>, <span class='kw'>...</span>)
+<span class='fu'>wkt_draw_polypath</span><span class='op'>(</span><span class='va'>wkt</span>, <span class='va'>...</span>, rule <span class='op'>=</span> <span class='st'>"evenodd"</span><span class='op'>)</span>
 
-<span class='fu'>wkb_draw_polypath</span>(<span class='kw'>wkb</span>, <span class='kw'>...</span>, rule = <span class='st'>"evenodd"</span>)
+<span class='fu'>wkb_plot_new</span><span class='op'>(</span>
+  <span class='va'>wkb</span>,
+  <span class='va'>...</span>,
+  asp <span class='op'>=</span> <span class='fl'>1</span>,
+  xlab <span class='op'>=</span> <span class='st'>""</span>,
+  ylab <span class='op'>=</span> <span class='st'>""</span>,
+  main <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/deparse.html'>deparse</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/substitute.html'>substitute</a></span><span class='op'>(</span><span class='va'>wkb</span><span class='op'>)</span><span class='op'>)</span>
+<span class='op'>)</span>
 
-<span class='fu'>wkt_draw_polypath</span>(<span class='kw'>wkt</span>, <span class='kw'>...</span>, rule = <span class='st'>"evenodd"</span>)
-
-<span class='fu'>wksxp_draw_polypath</span>(<span class='kw'>wksxp</span>, <span class='kw'>...</span>, rule = <span class='st'>"evenodd"</span>)
-
-<span class='fu'>wkb_plot_new</span>(
-  <span class='kw'>wkb</span>,
-  <span class='kw'>...</span>,
-  asp = <span class='fl'>1</span>,
-  xlab = <span class='st'>""</span>,
-  ylab = <span class='st'>""</span>,
-  main = <span class='fu'><a href='https://rdrr.io/r/base/deparse.html'>deparse</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/substitute.html'>substitute</a></span>(<span class='kw'>wkb</span>))
-)
-
-<span class='fu'>wkt_plot_new</span>(
-  <span class='kw'>wkt</span>,
-  <span class='kw'>...</span>,
-  asp = <span class='fl'>1</span>,
-  xlab = <span class='st'>""</span>,
-  ylab = <span class='st'>""</span>,
-  main = <span class='fu'><a href='https://rdrr.io/r/base/deparse.html'>deparse</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/substitute.html'>substitute</a></span>(<span class='kw'>wkt</span>))
-)
-
-<span class='fu'>wksxp_plot_new</span>(
-  <span class='kw'>wksxp</span>,
-  <span class='kw'>...</span>,
-  asp = <span class='fl'>1</span>,
-  xlab = <span class='st'>""</span>,
-  ylab = <span class='st'>""</span>,
-  main = <span class='fu'><a href='https://rdrr.io/r/base/deparse.html'>deparse</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/substitute.html'>substitute</a></span>(<span class='kw'>wksxp</span>))
-)</pre>
+<span class='fu'>wkt_plot_new</span><span class='op'>(</span>
+  <span class='va'>wkt</span>,
+  <span class='va'>...</span>,
+  asp <span class='op'>=</span> <span class='fl'>1</span>,
+  xlab <span class='op'>=</span> <span class='st'>""</span>,
+  ylab <span class='op'>=</span> <span class='st'>""</span>,
+  main <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/deparse.html'>deparse</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/substitute.html'>substitute</a></span><span class='op'>(</span><span class='va'>wkt</span><span class='op'>)</span><span class='op'>)</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -197,10 +176,6 @@ returned by <code>sf::st_as_binary()</code>.</p></td>
       <td><p>A character vector containing well-known text.</p></td>
     </tr>
     <tr>
-      <th>wksxp</th>
-      <td><p>A <code><a href='https://rdrr.io/r/base/list.html'>list()</a></code> of classed objects</p></td>
-    </tr>
-    <tr>
       <th>rule</th>
       <td><p>Passed to <code><a href='https://rdrr.io/r/graphics/polypath.html'>graphics::polypath()</a></code></p></td>
     </tr>
@@ -216,9 +191,14 @@ initialize a new plot.</p></td>
     <p>The input, invisibly</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>x</span> <span class='op'>&lt;-</span> <span class='st'>"POLYGON ((0 0, 10 0, 10 10, 0 10, 0 0))"</span>
+    <pre class="examples"><div class='input'><span class='va'>x</span> <span class='op'>&lt;-</span> <span class='st'>"POLYGON ((0 0, 10 0, 10 10, 0 10, 0 0))"</span>
 
-<span class='fu'>wkt_plot_new</span>(<span class='kw'>x</span>)</div><div class='input'><span class='fu'>wkt_draw_polypath</span>(<span class='kw'>x</span>, col = <span class='st'>"grey90"</span>)</div><div class='input'><span class='fu'>wkt_draw_lines</span>(<span class='kw'>x</span>, col = <span class='st'>"red"</span>)</div><div class='input'><span class='fu'>wkt_draw_points</span>(<span class='kw'>x</span>)</div><div class='img'><img src='wkb_draw_points-1.png' alt='' width='700' height='433' /></div><div class='input'></div></pre>
+<span class='fu'>wkt_plot_new</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+</div><div class='input'><span class='fu'>wkt_draw_polypath</span><span class='op'>(</span><span class='va'>x</span>, col <span class='op'>=</span> <span class='st'>"grey90"</span><span class='op'>)</span>
+</div><div class='input'><span class='fu'>wkt_draw_lines</span><span class='op'>(</span><span class='va'>x</span>, col <span class='op'>=</span> <span class='st'>"red"</span><span class='op'>)</span>
+</div><div class='input'><span class='fu'>wkt_draw_points</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+</div><div class='img'><img src='wkb_draw_points-1.png' alt='' width='700' height='433' /></div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -234,7 +214,7 @@ initialize a new plot.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>

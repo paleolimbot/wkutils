@@ -82,12 +82,6 @@ closed rings are assumed or required by many parsers." />
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
@@ -97,7 +91,7 @@ closed rings are assumed or required by many parsers." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/paleolimbot/wkutils/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -126,71 +120,58 @@ formats. Polygon rings are automatically closed, as
 closed rings are assumed or required by many parsers.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>coords_point_translate_wkt</span>(<span class='kw'>x</span>, <span class='kw'>y</span>, z = <span class='fl'>NA</span>, m = <span class='fl'>NA</span>, precision = <span class='fl'>16</span>, trim = <span class='fl'>TRUE</span>)
+    <pre class="usage"><span class='fu'>coords_point_translate_wkt</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span>, z <span class='op'>=</span> <span class='cn'>NA</span>, m <span class='op'>=</span> <span class='cn'>NA</span>, precision <span class='op'>=</span> <span class='fl'>16</span>, trim <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 
-<span class='fu'>coords_point_translate_wkb</span>(
-  <span class='kw'>x</span>,
-  <span class='kw'>y</span>,
-  z = <span class='fl'>NA</span>,
-  m = <span class='fl'>NA</span>,
-  endian = <span class='kw'>wk</span>::<span class='fu'><a href='https://rdrr.io/pkg/wk/man/wkb_translate_wkt.html'>wk_platform_endian</a></span>(),
-  buffer_size = <span class='fl'>2048</span>
-)
+<span class='fu'>coords_point_translate_wkb</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  <span class='va'>y</span>,
+  z <span class='op'>=</span> <span class='cn'>NA</span>,
+  m <span class='op'>=</span> <span class='cn'>NA</span>,
+  endian <span class='op'>=</span> <span class='fu'>wk</span><span class='fu'>::</span><span class='fu'><a href='https://paleolimbot.github.io/wk/reference/wkb_translate_wkt.html'>wk_platform_endian</a></span><span class='op'>(</span><span class='op'>)</span>,
+  buffer_size <span class='op'>=</span> <span class='fl'>2048</span>
+<span class='op'>)</span>
 
-<span class='fu'>coords_point_translate_wksxp</span>(<span class='kw'>x</span>, <span class='kw'>y</span>, z = <span class='fl'>NA</span>, m = <span class='fl'>NA</span>)
+<span class='fu'>coords_linestring_translate_wkt</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  <span class='va'>y</span>,
+  z <span class='op'>=</span> <span class='cn'>NA</span>,
+  m <span class='op'>=</span> <span class='cn'>NA</span>,
+  feature_id <span class='op'>=</span> <span class='fl'>1L</span>,
+  precision <span class='op'>=</span> <span class='fl'>16</span>,
+  trim <span class='op'>=</span> <span class='cn'>TRUE</span>
+<span class='op'>)</span>
 
-<span class='fu'>coords_linestring_translate_wkt</span>(
-  <span class='kw'>x</span>,
-  <span class='kw'>y</span>,
-  z = <span class='fl'>NA</span>,
-  m = <span class='fl'>NA</span>,
-  feature_id = <span class='fl'>1L</span>,
-  precision = <span class='fl'>16</span>,
-  trim = <span class='fl'>TRUE</span>
-)
+<span class='fu'>coords_linestring_translate_wkb</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  <span class='va'>y</span>,
+  z <span class='op'>=</span> <span class='cn'>NA</span>,
+  m <span class='op'>=</span> <span class='cn'>NA</span>,
+  feature_id <span class='op'>=</span> <span class='fl'>1L</span>,
+  endian <span class='op'>=</span> <span class='fu'>wk</span><span class='fu'>::</span><span class='fu'><a href='https://paleolimbot.github.io/wk/reference/wkb_translate_wkt.html'>wk_platform_endian</a></span><span class='op'>(</span><span class='op'>)</span>,
+  buffer_size <span class='op'>=</span> <span class='fl'>2048</span>
+<span class='op'>)</span>
 
-<span class='fu'>coords_linestring_translate_wkb</span>(
-  <span class='kw'>x</span>,
-  <span class='kw'>y</span>,
-  z = <span class='fl'>NA</span>,
-  m = <span class='fl'>NA</span>,
-  feature_id = <span class='fl'>1L</span>,
-  endian = <span class='kw'>wk</span>::<span class='fu'><a href='https://rdrr.io/pkg/wk/man/wkb_translate_wkt.html'>wk_platform_endian</a></span>(),
-  buffer_size = <span class='fl'>2048</span>
-)
+<span class='fu'>coords_polygon_translate_wkt</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  <span class='va'>y</span>,
+  z <span class='op'>=</span> <span class='cn'>NA</span>,
+  m <span class='op'>=</span> <span class='cn'>NA</span>,
+  feature_id <span class='op'>=</span> <span class='fl'>1L</span>,
+  ring_id <span class='op'>=</span> <span class='fl'>1L</span>,
+  precision <span class='op'>=</span> <span class='fl'>16</span>,
+  trim <span class='op'>=</span> <span class='cn'>TRUE</span>
+<span class='op'>)</span>
 
-<span class='fu'>coords_linestring_translate_wksxp</span>(<span class='kw'>x</span>, <span class='kw'>y</span>, z = <span class='fl'>NA</span>, m = <span class='fl'>NA</span>, feature_id = <span class='fl'>1L</span>)
-
-<span class='fu'>coords_polygon_translate_wkt</span>(
-  <span class='kw'>x</span>,
-  <span class='kw'>y</span>,
-  z = <span class='fl'>NA</span>,
-  m = <span class='fl'>NA</span>,
-  feature_id = <span class='fl'>1L</span>,
-  ring_id = <span class='fl'>1L</span>,
-  precision = <span class='fl'>16</span>,
-  trim = <span class='fl'>TRUE</span>
-)
-
-<span class='fu'>coords_polygon_translate_wkb</span>(
-  <span class='kw'>x</span>,
-  <span class='kw'>y</span>,
-  z = <span class='fl'>NA</span>,
-  m = <span class='fl'>NA</span>,
-  feature_id = <span class='fl'>1L</span>,
-  ring_id = <span class='fl'>1L</span>,
-  endian = <span class='kw'>wk</span>::<span class='fu'><a href='https://rdrr.io/pkg/wk/man/wkb_translate_wkt.html'>wk_platform_endian</a></span>(),
-  buffer_size = <span class='fl'>2048</span>
-)
-
-<span class='fu'>coords_polygon_translate_wksxp</span>(
-  <span class='kw'>x</span>,
-  <span class='kw'>y</span>,
-  z = <span class='fl'>NA</span>,
-  m = <span class='fl'>NA</span>,
-  feature_id = <span class='fl'>1L</span>,
-  ring_id = <span class='fl'>1L</span>
-)</pre>
+<span class='fu'>coords_polygon_translate_wkb</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  <span class='va'>y</span>,
+  z <span class='op'>=</span> <span class='cn'>NA</span>,
+  m <span class='op'>=</span> <span class='cn'>NA</span>,
+  feature_id <span class='op'>=</span> <span class='fl'>1L</span>,
+  ring_id <span class='op'>=</span> <span class='fl'>1L</span>,
+  endian <span class='op'>=</span> <span class='fu'>wk</span><span class='fu'>::</span><span class='fu'><a href='https://paleolimbot.github.io/wk/reference/wkb_translate_wkt.html'>wk_platform_endian</a></span><span class='op'>(</span><span class='op'>)</span>,
+  buffer_size <span class='op'>=</span> <span class='fl'>2048</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -211,7 +192,7 @@ closed rings are assumed or required by many parsers.</p>
     <tr>
       <th>endian</th>
       <td><p>For WKB writing, 0 for big endian, 1 for little endian.
-Defaults to <code><a href='https://rdrr.io/pkg/wk/man/wkb_translate_wkt.html'>wk_platform_endian()</a></code> (slightly faster).</p></td>
+Defaults to <code><a href='https://paleolimbot.github.io/wk/reference/wkb_translate_wkt.html'>wk_platform_endian()</a></code> (slightly faster).</p></td>
     </tr>
     <tr>
       <th>buffer_size</th>
@@ -232,11 +213,14 @@ to convert from a character vector.</p></td>
 
     <p><code>*_translate_wkt()</code> returns a character vector of
 well-known text; <code>*_translate_wkb()</code> returns a list
-of raw vectors, and <code>*_translate_wksxp()</code> returns an unclassed
-list of <code>wksxp()</code> geometries.</p>
+of raw vectors.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>coords_point_translate_wkt</span>(<span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span>, <span class='fl'>2</span><span class='op'>:</span><span class='fl'>4</span>)</div><div class='output co'>#&gt; [1] "POINT (1 2)" "POINT (2 3)" "POINT (3 4)"</div><div class='input'><span class='fu'>coords_linestring_translate_wkt</span>(<span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>, <span class='fl'>2</span><span class='op'>:</span><span class='fl'>6</span>, feature_id = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>2</span>))</div><div class='output co'>#&gt; [1] "LINESTRING (1 2, 2 3, 3 4)" "LINESTRING (4 5, 5 6)"     </div><div class='input'><span class='fu'>coords_polygon_translate_wkt</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>10</span>, <span class='fl'>0</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>10</span>))</div><div class='output co'>#&gt; [1] "POLYGON ((0 0, 10 0, 0 10, 0 0))"</div><div class='input'></div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>coords_point_translate_wkt</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span>, <span class='fl'>2</span><span class='op'>:</span><span class='fl'>4</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "POINT (1 2)" "POINT (2 3)" "POINT (3 4)"</div><div class='input'><span class='fu'>coords_linestring_translate_wkt</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>, <span class='fl'>2</span><span class='op'>:</span><span class='fl'>6</span>, feature_id <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "LINESTRING (1 2, 2 3, 3 4)" "LINESTRING (4 5, 5 6)"     </div><div class='input'><span class='fu'>coords_polygon_translate_wkt</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>10</span>, <span class='fl'>0</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>10</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "POLYGON ((0 0, 10 0, 0 10, 0 0))"</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -252,7 +236,7 @@ list of <code>wksxp()</code> geometries.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>
