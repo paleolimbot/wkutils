@@ -9,20 +9,12 @@ cpp_coords_point_translate_wkb <- function(x, y, z, m, endian, bufferSize) {
     .Call(`_wkutils_cpp_coords_point_translate_wkb`, x, y, z, m, endian, bufferSize)
 }
 
-cpp_coords_point_translate_wksxp <- function(x, y, z, m) {
-    .Call(`_wkutils_cpp_coords_point_translate_wksxp`, x, y, z, m)
-}
-
 cpp_coords_linestring_translate_wkt <- function(x, y, z, m, featureId, precision, trim) {
     .Call(`_wkutils_cpp_coords_linestring_translate_wkt`, x, y, z, m, featureId, precision, trim)
 }
 
 cpp_coords_linestring_translate_wkb <- function(x, y, z, m, featureId, endian, bufferSize) {
     .Call(`_wkutils_cpp_coords_linestring_translate_wkb`, x, y, z, m, featureId, endian, bufferSize)
-}
-
-cpp_coords_linestring_translate_wksxp <- function(x, y, z, m, featureId) {
-    .Call(`_wkutils_cpp_coords_linestring_translate_wksxp`, x, y, z, m, featureId)
 }
 
 cpp_coords_polygon_translate_wkt <- function(x, y, z, m, featureId, ringId, precision, trim) {
@@ -33,20 +25,12 @@ cpp_coords_polygon_translate_wkb <- function(x, y, z, m, featureId, ringId, endi
     .Call(`_wkutils_cpp_coords_polygon_translate_wkb`, x, y, z, m, featureId, ringId, endian, bufferSize)
 }
 
-cpp_coords_polygon_translate_wksxp <- function(x, y, z, m, featureId, ringId) {
-    .Call(`_wkutils_cpp_coords_polygon_translate_wksxp`, x, y, z, m, featureId, ringId)
-}
-
 cpp_coords_wkb <- function(wkb, sepNA) {
     .Call(`_wkutils_cpp_coords_wkb`, wkb, sepNA)
 }
 
 cpp_coords_wkt <- function(wkt, sepNA) {
     .Call(`_wkutils_cpp_coords_wkt`, wkt, sepNA)
-}
-
-cpp_coords_wksxp <- function(wksxp, sepNA) {
-    .Call(`_wkutils_cpp_coords_wksxp`, wksxp, sepNA)
 }
 
 cpp_debug_wkb <- function(wkb) {
@@ -61,20 +45,12 @@ cpp_debug_wkt_streamer <- function(input) {
     invisible(.Call(`_wkutils_cpp_debug_wkt_streamer`, input))
 }
 
-cpp_debug_wksxp <- function(input) {
-    invisible(.Call(`_wkutils_cpp_debug_wksxp`, input))
-}
-
 cpp_wkt_set_srid <- function(wkt, srid, precision = 16L, trim = TRUE) {
     .Call(`_wkutils_cpp_wkt_set_srid`, wkt, srid, precision, trim)
 }
 
 cpp_wkb_set_srid <- function(wkb, srid, endian) {
     .Call(`_wkutils_cpp_wkb_set_srid`, wkb, srid, endian)
-}
-
-cpp_wksxp_set_srid <- function(wksxp, srid) {
-    .Call(`_wkutils_cpp_wksxp_set_srid`, wksxp, srid)
 }
 
 cpp_wkt_set_z <- function(wkt, z, precision = 16L, trim = TRUE) {
@@ -85,20 +61,12 @@ cpp_wkb_set_z <- function(wkb, z, endian) {
     .Call(`_wkutils_cpp_wkb_set_z`, wkb, z, endian)
 }
 
-cpp_wksxp_set_z <- function(wksxp, z) {
-    .Call(`_wkutils_cpp_wksxp_set_z`, wksxp, z)
-}
-
 cpp_wkt_transform <- function(wkt, transform, precision = 16L, trim = TRUE) {
     .Call(`_wkutils_cpp_wkt_transform`, wkt, transform, precision, trim)
 }
 
 cpp_wkb_transform <- function(wkb, transform, endian) {
     .Call(`_wkutils_cpp_wkb_transform`, wkb, transform, endian)
-}
-
-cpp_wksxp_transform <- function(wksxp, transform) {
-    .Call(`_wkutils_cpp_wksxp_transform`, wksxp, transform)
 }
 
 cpp_wkt_has_non_finite <- function(wkt) {
@@ -109,20 +77,12 @@ cpp_wkb_has_non_finite <- function(wkb) {
     .Call(`_wkutils_cpp_wkb_has_non_finite`, wkb)
 }
 
-cpp_wksxp_has_non_finite <- function(wksxp) {
-    .Call(`_wkutils_cpp_wksxp_has_non_finite`, wksxp)
-}
-
 cpp_wkt_has_missing <- function(wkt) {
     .Call(`_wkutils_cpp_wkt_has_missing`, wkt)
 }
 
 cpp_wkb_has_missing <- function(wkb) {
     .Call(`_wkutils_cpp_wkb_has_missing`, wkb)
-}
-
-cpp_wksxp_has_missing <- function(wksxp) {
-    .Call(`_wkutils_cpp_wksxp_has_missing`, wksxp)
 }
 
 cpp_meta_wkb <- function(wkb, recursive) {
@@ -137,20 +97,12 @@ cpp_meta_wkt_streamer <- function(wkt, recursive) {
     .Call(`_wkutils_cpp_meta_wkt_streamer`, wkt, recursive)
 }
 
-cpp_meta_wksxp <- function(wksxp, recursive) {
-    .Call(`_wkutils_cpp_meta_wksxp`, wksxp, recursive)
-}
-
 cpp_ranges_wkb <- function(wkb, naRm, onlyFinite) {
     .Call(`_wkutils_cpp_ranges_wkb`, wkb, naRm, onlyFinite)
 }
 
 cpp_ranges_wkt <- function(wkt, naRm, onlyFinite) {
     .Call(`_wkutils_cpp_ranges_wkt`, wkt, naRm, onlyFinite)
-}
-
-cpp_ranges_wksxp <- function(wksxp, naRm, onlyFinite) {
-    .Call(`_wkutils_cpp_ranges_wksxp`, wksxp, naRm, onlyFinite)
 }
 
 cpp_feature_ranges_wkb <- function(wkb, naRm, onlyFinite) {
@@ -161,19 +113,11 @@ cpp_feature_ranges_wkt <- function(wkt, naRm, onlyFinite) {
     .Call(`_wkutils_cpp_feature_ranges_wkt`, wkt, naRm, onlyFinite)
 }
 
-cpp_feature_ranges_wksxp <- function(wksxp, naRm, onlyFinite) {
-    .Call(`_wkutils_cpp_feature_ranges_wksxp`, wksxp, naRm, onlyFinite)
-}
-
 cpp_wkt_unnest <- function(wkt, keepEmpty, keepMulti, maxUnnestDepth) {
     .Call(`_wkutils_cpp_wkt_unnest`, wkt, keepEmpty, keepMulti, maxUnnestDepth)
 }
 
 cpp_wkb_unnest <- function(wkb, keepEmpty, keepMulti, maxUnnestDepth, endian) {
     .Call(`_wkutils_cpp_wkb_unnest`, wkb, keepEmpty, keepMulti, maxUnnestDepth, endian)
-}
-
-cpp_wksxp_unnest <- function(wksxp, keepEmpty, keepMulti, maxUnnestDepth) {
-    .Call(`_wkutils_cpp_wksxp_unnest`, wksxp, keepEmpty, keepMulti, maxUnnestDepth)
 }
 

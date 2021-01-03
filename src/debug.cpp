@@ -5,7 +5,6 @@
 
 #include <Rcpp.h>
 #include "wk/rcpp-io.hpp"
-#include "wk/rcpp-sexp-reader.hpp"
 using namespace Rcpp;
 
 void cpp_debug_base(WKReader& reader) {
@@ -36,12 +35,5 @@ void cpp_debug_wkt(CharacterVector input) {
 void cpp_debug_wkt_streamer(CharacterVector input) {
   WKCharacterVectorProvider provider(input);
   WKTStreamer reader(provider);
-  cpp_debug_base(reader);
-}
-
-// [[Rcpp::export]]
-void cpp_debug_wksxp(List input) {
-  WKRcppSEXPProvider provider(input);
-  WKRcppSEXPReader reader(provider);
   cpp_debug_base(reader);
 }

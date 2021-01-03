@@ -78,17 +78,6 @@ List cpp_wkb_set_srid(List wkb, IntegerVector srid, int endian) {
   return exporter.output;
 }
 
-// [[Rcpp::export]]
-List cpp_wksxp_set_srid(List wksxp, IntegerVector srid) {
-  WKRcppSEXPProvider provider(wksxp);
-  WKRcppSEXPReader reader(provider);
-
-  WKRcppSEXPExporter exporter(wksxp.size());
-  WKRcppSEXPWriter writer(exporter);
-  set_srid_base(reader, writer, srid);
-  return exporter.output;
-}
-
 // ----------- set z -------------
 
 
@@ -157,17 +146,6 @@ List cpp_wkb_set_z(List wkb, NumericVector z, int endian) {
   return exporter.output;
 }
 
-// [[Rcpp::export]]
-List cpp_wksxp_set_z(List wksxp, NumericVector z) {
-  WKRcppSEXPProvider provider(wksxp);
-  WKRcppSEXPReader reader(provider);
-
-  WKRcppSEXPExporter exporter(wksxp.size());
-  WKRcppSEXPWriter writer(exporter);
-  set_z_base(reader, writer, z);
-  return exporter.output;
-}
-
 // ---------- transform -----------
 
 class WKTransformFilter: public WKFilter {
@@ -221,16 +199,5 @@ List cpp_wkb_transform(List wkb, NumericVector transform, int endian) {
   WKBWriter writer(exporter);
   writer.setEndian(endian);
  transform_base(reader, writer, transform);
-  return exporter.output;
-}
-
-// [[Rcpp::export]]
-List cpp_wksxp_transform(List wksxp, NumericVector transform) {
-  WKRcppSEXPProvider provider(wksxp);
-  WKRcppSEXPReader reader(provider);
-
-  WKRcppSEXPExporter exporter(wksxp.size());
-  WKRcppSEXPWriter writer(exporter);
-  transform_base(reader, writer, transform);
   return exporter.output;
 }

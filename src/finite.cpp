@@ -1,9 +1,9 @@
 
 #include "wk/wkt-reader.hpp"
 #include "wk/wkb-reader.hpp"
-#include "wk/rcpp-sexp-reader.hpp"
 
 #include <Rcpp.h>
+#include "wk/rcpp-io.hpp"
 using namespace Rcpp;
 
 class WKHasSomethingException: public WKParseException {
@@ -97,13 +97,6 @@ LogicalVector cpp_wkb_has_non_finite(List wkb) {
   return has_non_finite_base(reader);
 }
 
-// [[Rcpp::export]]
-LogicalVector cpp_wksxp_has_non_finite(List wksxp) {
-  WKRcppSEXPProvider provider(wksxp);
-  WKRcppSEXPReader reader(provider);
-  return has_non_finite_base(reader);
-}
-
 LogicalVector has_missing_base(WKReader& reader) {
   WKHasMissingHandler handler(reader.nFeatures());
   reader.setHandler(&handler);
@@ -126,12 +119,5 @@ LogicalVector cpp_wkt_has_missing(CharacterVector wkt) {
 LogicalVector cpp_wkb_has_missing(List wkb) {
   WKRawVectorListProvider provider(wkb);
   WKBReader reader(provider);
-  return has_missing_base(reader);
-}
-
-// [[Rcpp::export]]
-LogicalVector cpp_wksxp_has_missing(List wksxp) {
-  WKRcppSEXPProvider provider(wksxp);
-  WKRcppSEXPReader reader(provider);
   return has_missing_base(reader);
 }

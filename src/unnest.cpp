@@ -4,8 +4,6 @@
 #include "wk/wkt-reader.hpp"
 #include "wk/wkb-writer.hpp"
 #include "wk/wkb-reader.hpp"
-#include "wk/rcpp-sexp-writer.hpp"
-#include "wk/rcpp-sexp-reader.hpp"
 #include "wk/filter.hpp"
 
 #include <Rcpp.h>
@@ -208,21 +206,6 @@ List cpp_wkb_unnest(List wkb, bool keepEmpty, bool keepMulti, int maxUnnestDepth
   WKRawVectorListExporter exporter(nGeometries);
   WKBWriter writer(exporter);
   writer.setEndian(endian);
-
-  unnest_do(reader, writer, keepEmpty, keepMulti, maxUnnestDepth);
-  exporter.output.attr("lengths") = lengths;
-  return exporter.output;
-}
-
-//  [[Rcpp::export]]
-List cpp_wksxp_unnest(List wksxp, bool keepEmpty, bool keepMulti, int maxUnnestDepth) {
-  WKRcppSEXPProvider provider(wksxp);
-  WKRcppSEXPReader reader(provider);
-
-  IntegerVector lengths = unnest_count(reader, keepEmpty, keepMulti, maxUnnestDepth);
-  size_t nGeometries = sum(lengths);
-  WKRcppSEXPExporter exporter(nGeometries);
-  WKRcppSEXPWriter writer(exporter);
 
   unnest_do(reader, writer, keepEmpty, keepMulti, maxUnnestDepth);
   exporter.output.attr("lengths") = lengths;

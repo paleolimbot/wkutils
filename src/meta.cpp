@@ -7,7 +7,6 @@
 
 #include <Rcpp.h>
 #include "wk/rcpp-io.hpp"
-#include "wk/rcpp-sexp-reader.hpp"
 using namespace Rcpp;
 
 class WKMetaCounter: public WKGeometryHandler {
@@ -165,12 +164,5 @@ List cpp_meta_wkt(CharacterVector wkt, bool recursive) {
 List cpp_meta_wkt_streamer(CharacterVector wkt, bool recursive) {
   WKCharacterVectorProvider provider(wkt);
   WKTStreamer reader(provider);
-  return cpp_meta_base(reader, recursive);
-}
-
-// [[Rcpp::export]]
-List cpp_meta_wksxp(List wksxp, bool recursive) {
-  WKRcppSEXPProvider provider(wksxp);
-  WKRcppSEXPReader reader(provider);
   return cpp_meta_base(reader, recursive);
 }

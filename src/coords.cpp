@@ -5,7 +5,6 @@
 
 #include <Rcpp.h>
 #include "wk/rcpp-io.hpp"
-#include "wk/rcpp-sexp-reader.hpp"
 using namespace Rcpp;
 
 class WKCoordinateCounter: public WKGeometryHandler {
@@ -177,12 +176,5 @@ List cpp_coords_wkb(List wkb, bool sepNA) {
 List cpp_coords_wkt(CharacterVector wkt, bool sepNA) {
   WKCharacterVectorProvider provider(wkt);
   WKTStreamer reader(provider);
-  return cpp_coords_base(reader, sepNA);
-}
-
-// [[Rcpp::export]]
-List cpp_coords_wksxp(List wksxp, bool sepNA) {
-  WKRcppSEXPProvider provider(wksxp);
-  WKRcppSEXPReader reader(provider);
   return cpp_coords_base(reader, sepNA);
 }
