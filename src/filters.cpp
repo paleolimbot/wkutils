@@ -3,8 +3,6 @@
 #include "wk/wkt-reader.hpp"
 #include "wk/wkb-writer.hpp"
 #include "wk/wkb-reader.hpp"
-#include "wk/rcpp-sexp-writer.hpp"
-#include "wk/rcpp-sexp-reader.hpp"
 #include "wk/filter.hpp"
 
 #include <Rcpp.h>
