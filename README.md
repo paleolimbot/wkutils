@@ -7,7 +7,7 @@
 
 <!-- badges: end -->
 
-Whereas the [wk package](https://paleolimbot.github.io/wk) provides
+Whereas the [wk package](https://paleolimbot.github.io/wk/) provides
 headers and class definitions for well-known geometry formats, this
 package uses those headers to interrogate and transform these vectors.
 

@@ -27,5 +27,5 @@ LinkingTo:
     Rcpp
 Suggests: 
     testthat
-URL: https://paleolimbot.github.io/wkutils, https://github.com/paleolimbot/wkutils
+URL: https://paleolimbot.github.io/wkutils/, https://github.com/paleolimbot/wkutils
 BugReports: https://github.com/paleolimbot/wkutils/issues
