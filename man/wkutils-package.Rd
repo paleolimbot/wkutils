@@ -15,7 +15,7 @@ Provides extra utilities for well-known formats in the
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://paleolimbot.github.io/wkutils}
+  \item \url{https://paleolimbot.github.io/wkutils/}
   \item \url{https://github.com/paleolimbot/wkutils}
   \item Report bugs at \url{https://github.com/paleolimbot/wkutils/issues}
 }
