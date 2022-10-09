@@ -5,6 +5,7 @@
 
 <!-- badges: start -->
 
+[![R-CMD-check](https://github.com/paleolimbot/wkutils/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/paleolimbot/wkutils/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 Whereas the [wk package](https://paleolimbot.github.io/wk/) provides
@@ -35,7 +36,7 @@ The gist of the functions in this package:
 library(wkutils)
 
 wkt_coords("POINT (30 10)")
-#> # A tibble: 1 x 7
+#> # A tibble: 1 × 7
 #>   feature_id part_id ring_id     x     y     z     m
 #>        <int>   <int>   <int> <dbl> <dbl> <dbl> <dbl>
 #> 1          1       1       0    30    10    NA    NA
@@ -52,12 +53,12 @@ wkt_set_srid("POINT (30 10)", 1234)
 wkt_set_z("POINT (30 10)", 1234)
 #> [1] "POINT Z (30 10 1234)"
 wkt_meta("POINT (30 10)")
-#> # A tibble: 1 x 7
+#> # A tibble: 1 × 7
 #>   feature_id part_id type_id  size  srid has_z has_m
 #>        <int>   <int>   <int> <int> <int> <lgl> <lgl>
 #> 1          1       1       1     1    NA FALSE FALSE
 wkt_ranges("POINT (30 10)")
-#> # A tibble: 1 x 8
+#> # A tibble: 1 × 8
 #>    xmin  ymin  zmin  mmin  xmax  ymax  zmax  mmax
 #>   <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
 #> 1    30    10   Inf   Inf    30    10  -Inf  -Inf
