@@ -10,6 +10,7 @@
 #' @param feature_id,ring_id Vectors for which a change in
 #'   sequential values indicates a new feature or ring. Use [factor()]
 #'   to convert from a character vector.
+#' @param buffer_size The buffer size to use when converting to WKB.
 #' @inheritParams wk::wkb_translate_wkt
 #'
 #' @return `*_translate_wkt()` returns a character vector of

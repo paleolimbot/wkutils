@@ -70,13 +70,9 @@ coords_polygon_translate_wkb(
 
 \item{trim}{Trim unnecessary zeroes in the output?}
 
-\item{endian}{For WKB writing, 0 for big endian, 1 for little endian.
-Defaults to \code{\link[wk:wkb_translate_wkt]{wk_platform_endian()}} (slightly faster).}
+\item{endian}{Force the endian of the resulting WKB.}
 
-\item{buffer_size}{For WKB writing, the initial buffer size to use for
-each feature, in bytes. This will be extended when needed, but if you
-are calling this repeatedly with huge geometries, setting this value
-to a larger number may result in less copying.}
+\item{buffer_size}{The buffer size to use when converting to WKB.}
 
 \item{feature_id, ring_id}{Vectors for which a change in
 sequential values indicates a new feature or ring. Use \code{\link[=factor]{factor()}}

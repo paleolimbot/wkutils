@@ -5,6 +5,11 @@
 
 using namespace Rcpp;
 
+#ifdef RCPP_USE_GLOBAL_ROSTREAM
+Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
+Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
+#endif
+
 // cpp_coords_point_translate_wkt
 CharacterVector cpp_coords_point_translate_wkt(NumericVector x, NumericVector y, NumericVector z, NumericVector m, int precision, bool trim);
 RcppExport SEXP _wkutils_cpp_coords_point_translate_wkt(SEXP xSEXP, SEXP ySEXP, SEXP zSEXP, SEXP mSEXP, SEXP precisionSEXP, SEXP trimSEXP) {

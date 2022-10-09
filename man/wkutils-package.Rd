@@ -6,11 +6,7 @@
 \alias{wkutils-package}
 \title{wkutils: Utilities for Well-Known Geometry Vectors}
 \description{
-Provides extra utilities for well-known formats in the
-  'wk' package that are outside the scope of that package. Utilities
-  to parse coordinates from data frames, plot well-known geometry
-  vectors, extract meta information from well-known geometry vectors,
-  and calculate bounding boxes are provided.
+Provides extra utilities for well-known formats in the 'wk' package that are outside the scope of that package. Utilities to parse coordinates from data frames, plot well-known geometry vectors, extract meta information from well-known geometry vectors, and calculate bounding boxes are provided.
 }
 \seealso{
 Useful links:
