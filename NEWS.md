@@ -1,5 +1,8 @@
 # wkutils (development version)
 
+* Vendored wk headers that are no longer being shipped with wk in
+  the development version.
+
 # wkutils 0.1.1
 
 * Removed support for `wk::wksxp()` for future compatibility with wk.
