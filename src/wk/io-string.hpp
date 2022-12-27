@@ -4,6 +4,7 @@
 
 #include <locale>
 #include <sstream>
+#include <cstdint>
 
 #include "wk/io.hpp"
 
